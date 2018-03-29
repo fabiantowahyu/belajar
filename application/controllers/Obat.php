@@ -1,14 +1,15 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class Medicine extends CI_Controller {
+class Obat extends CI_Controller {
     private $tblName;
     private $field;
 
     public function __construct() {
         parent::__construct();
-        $this->load->model('md_medicine');
-        $this->tblName = $this->config->item('tmst_typevar');
-        $this->field = 'id';
+        $this->load->model('md_obat');
+        //$this->tblName = $this->config->item('tmst_obat');
+         $this->tblName = 'tmst_obat';
+        $this->field = 'id_obat';
     }
 
     public function index()	{
@@ -32,13 +33,13 @@ class Medicine extends CI_Controller {
             $data['breadcrum'] = $breadcrum;
             /* end */
 
-            $data['results'] = $this->md_medicine->MDL_Select();
+            $data['results'] = $this->md_obat->MDL_Select();
 
 
             $nm_title = $this->auth->Auth_getNameMenu();
             $data['title'] = sprintf("%s",$nm_title);
-            $data['page'] = 'Medicine/view';
-            $data['plugin'] = 'Medicine/plugin';
+            $data['page'] = 'Obat/view';
+            $data['plugin'] = 'Obat/plugin';
             $this->load->view('template_admin', $data);
         }
     }
@@ -54,17 +55,13 @@ class Medicine extends CI_Controller {
             $this->load->view('template_admin', $data);
         } else {
             if ($this->input->post('close')) {
-                redirect('master_type');
+                redirect('obat');
             } elseif ($this->input->post('btn_submit')) {
-                $isDuplicated = $this->md_medicine->MDL_isPermInsert($this->input->post('id'));
-                if($isDuplicated) {
-                    $this->md_medicine->MDL_Insert();
-                    redirect('master_type');
-                } else {
-                    $data['id'] = $this->input->post('id');
-                    $data['page'] = 'error_duplicated';
-                    $this->load->view('template_admin', $data);
-                }
+               
+                
+                    $this->md_obat->MDL_Insert();
+                    redirect('obat');
+                
             } else {
                 /* Bread crum */
                 $this->load->model('md_ref_json');
@@ -81,41 +78,39 @@ class Medicine extends CI_Controller {
                 $data['breadcrum'] = $breadcrum;
                 /* end */
 
-                $AryTableName = $this->CTRL_Option_TableName();
-                $data['table_name'] = '';
-                $data['option_table_name'] = $AryTableName;
+               
 
                 $nm_title = $this->auth->Auth_getNameMenu();
                 $data['title_head'] = sprintf("%s - Add New",$nm_title);
                 $data['title'] = sprintf("%s",$nm_title);
 
-                $data['url'] = 'master_type/CTRL_New';
-                $data['url_tid'] = sprintf("%s%s/",site_url(),"master_type/CTRL_Select_OrderNumber");
-                $data['page'] = 'Medicine/form';
-                $data['plugin'] = 'Medicine/plugin';
+                $data['url'] = 'obat/CTRL_New';
+                $data['url_tid'] = sprintf("%s%s/",site_url(),"obat/CTRL_Select_OrderNumber");
+                $data['page'] = 'Obat/form';
+                $data['plugin'] = 'Obat/plugin';
                 $this->load->view('template_admin', $data);
             }
         }
     }
 
-    public function CTRL_Edit($id='') {
+    public function CTRL_Edit($id_obat='') {
         if(!$this->auth->Auth_isPerm()) {
             $this->load->view('error_akses');
         } elseif(!$this->auth->Auth_isPrivButton('edit')) {
             $data['action'] = 'edit';
             $data['page'] = 'error_sysmenu';
             $this->load->view('template_admin', $data);
-        } elseif(!$this->auth->Auth_isRecID($id,$this->tblName,$this->field)) {
-            $data['id'] = $id;
+        } elseif(!$this->auth->Auth_isRecID($id_obat,$this->tblName,$this->field)) {
+            $data['id'] = $id_obat;
             $data['page'] = 'error_invalidID';
             $this->load->view('template_admin', $data);
         } else {
             if ($this->input->post('close')) {
-                redirect('master_type');
+                redirect('obat');
             } elseif ($this->input->post('btn_submit')) {
                 $id = $this->input->post('id');
-                $this->md_medicine->MDL_Update($id);
-                redirect('master_type');
+                $this->md_obat->MDL_Update($id_obat);
+                redirect('obat');
             } else {
                 /* Bread crum */
                 $this->load->model('md_ref_json');
@@ -132,23 +127,22 @@ class Medicine extends CI_Controller {
                 $data['breadcrum'] = $breadcrum;
                 /* end */
 
-                $hasil = $this->md_medicine->MDL_SelectID($id);
-                $data['id'] = $hasil->id;
-                $data['name'] = $hasil->name;
-                $data['table_name'] = $hasil->table_name;
-                $data['tid'] = $hasil->tid;
+                $hasil = $this->md_obat->MDL_SelectID($id_obat);
+                $data['id_obat'] = $hasil->id_obat;
+                $data['nama'] = $hasil->nama;
+                $data['merk'] = $hasil->merk;
+                $data['harga_jual'] = $hasil->harga_jual;
+                $data['satuan'] = $hasil->satuan;
 
-                $AryTableName = $this->CTRL_Option_TableName();
-                $data['option_table_name'] = $AryTableName;
-
+               
                 $nm_title = $this->auth->Auth_getNameMenu();
                 $data['title_head'] = sprintf("%s - Update",$nm_title);
                 $data['title'] = sprintf("%s",$nm_title);
-                $data['url'] = 'master_type/CTRL_Edit/'.$id;
-                $data['url_del'] = 'master_type/CTRL_Delete/'.$id;
-                $data['url_tid'] = sprintf("%s%s/",site_url(),"master_type/CTRL_Select_OrderNumber");
-                $data['page'] = 'Medicine/form_edit';
-                $data['plugin'] = 'Medicine/plugin';
+                $data['url'] = 'obat/CTRL_Edit/'.$id_obat;
+                $data['url_del'] = 'obat/CTRL_Delete/'.$id_obat;
+                $data['url_tid'] = sprintf("%s%s/",site_url(),"obat/CTRL_Select_OrderNumber");
+                $data['page'] = 'Obat/form_edit';
+                $data['plugin'] = 'Obat/plugin';
                 $this->load->view('template_admin', $data);
             }
         }
@@ -166,14 +160,10 @@ class Medicine extends CI_Controller {
             $data['page'] = 'error_invalidID';
             $this->load->view('template_admin', $data);
         } else {
-            $isDeleted = $this->md_medicine->MDL_isPermDelete($id);
-            if($isDeleted) {
-                $this->md_medicine->MDL_Delete($id);
-                redirect('master_type');
-            } else {
-                $data['page'] = 'error_delete';
-                $this->load->view('template_admin', $data);
-            }
+            
+                $this->md_obat->MDL_Delete($id);
+                redirect('obat');
+            
         }
     }
 
@@ -181,7 +171,7 @@ class Medicine extends CI_Controller {
         if(!$this->auth->Auth_isPerm()) {
             $this->load->view('error_akses');
         }  else {
-            $result = $this->md_medicine->MDL_getMax_OrderNumber();
+            $result = $this->md_obat->MDL_getMax_OrderNumber();
             if ($result){
                 echo json_encode(array('success'=>true,'tid'=>$result));
             } else {
@@ -192,7 +182,7 @@ class Medicine extends CI_Controller {
 
     public function CTRL_Option_TableName() {
 
-        $AryCompany = $this->md_medicine->MDL_Select();
+        $AryCompany = $this->md_obat->MDL_Select();
         $option[''] = 'Choose a Table Name...';
         foreach($AryCompany as $row) {
             $option[$row->table_name] = $row->table_name;

@@ -26,61 +26,55 @@
 
                     <fieldset>
                         <legend>Manage Menu</legend>
-                        <div class="form-group">
-                            <label for="TypeID" class="col-md-2 control-label">Type Code</label>
-                            <div class="col-md-4">
-                                <?php
-                                $input = array('name' => 'id', 'maxlength' => 15, 'id' => 'TypeID', 'class' => 'form-control');
-                                echo form_input($input);
-                                ?>
-                            </div>
-                        </div>
+                        
                         
                 
                 <div class="form-group">
-                    <label for="TypeName" class="col-md-2 control-label">Type Name</label>
+                    <label for="TypeName" class="col-md-2 control-label">Nama Obat</label>
                     <div class="col-md-4">
                         <?php
-                        $input = array('name' => 'name', 'maxlength' => 64, 'id' => 'TypeName', 'class' => 'form-control', 'data-bv-notempty' => 'true');
+                        $input = array('name' => 'nama', 'maxlength' => 64, 'id' => 'TypeName', 'class' => 'form-control', 'data-bv-notempty' => 'true');
                         echo form_input($input);
                         ?>
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="TableName" class="col-md-2 control-label">Table Name</label>
+                    <label for="TableName" class="col-md-2 control-label">Merk</label>
                     <div class="col-md-4">
-                         <?php
-                                echo form_dropdown('table_name', $option_table_name,$table_name,'id="TableName" class="form-control"');
-                                ?>
-                    </div>
-                </div>
-                <div id="TableNameOther">    
-                    <div class="form-group">
-                        <label for="Other" class="col-md-2 control-label">Other</label>
-                        <div class="col-md-4">
-                            <?php
-                            $input = array('name' => 'table_name_other', 'maxlength' => 32, 'id' => 'Other', 'class' => 'form-control');
-                            echo form_input($input);
-                            ?>
-                        </div>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label for="OrderNumber" class="col-md-2 control-label">Order Number</label>
-                    <div class="col-md-1">
-                        <?php
-                        $input = array('name' => 'tid', 'id' => 'OrderNumber', 'class' => 'form-control', 'data-bv-notempty' => 'true');
+                          <?php
+                        $input = array('name' => 'merk', 'maxlength' => 64, 'id' => 'TypeName', 'class' => 'form-control', 'data-bv-notempty' => 'true');
                         echo form_input($input);
                         ?>
                     </div>
                 </div>
+                        <div class="form-group">
+                    <label for="TableName" class="col-md-2 control-label">Satuan</label>
+                    <div class="col-md-4">
+                          <?php
+                        $input = array('name' => 'satuan', 'maxlength' => 64, 'id' => 'TypeName', 'class' => 'form-control', 'data-bv-notempty' => 'true');
+                        echo form_input($input);
+                        ?>
+                    </div>
+                </div>
+                        
+                        <div class="form-group">
+                    <label for="TableName" class="col-md-2 control-label">Harga Jual</label>
+                    <div class="col-md-4">
+                          <?php
+                        $input = array('name' => 'harga_jual', 'maxlength' => 64, 'id' => 'TypeName', 'class' => 'form-control', 'data-bv-notempty' => 'true');
+                        echo form_input($input);
+                        ?>
+                    </div>
+                </div>
+                
+                
             </fieldset>
 
             <div class="form-actions">
                 <div class="row">
                     <div class="col-md-12">
                         <?php
-                        echo anchor('master_type', '<i class="fa fa-reply"></i>&nbsp;Cancel', array('class' => 'btn btn-small btn-info'));
+                        echo anchor('obat', '<i class="fa fa-reply"></i>&nbsp;Cancel', array('class' => 'btn btn-small btn-info'));
                         ?>
                         <button class="btn btn-primary" name="btn_submit"  value="Save"  type="submit">
                             <i class="fa fa-save"></i>

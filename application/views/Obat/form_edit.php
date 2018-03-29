@@ -24,62 +24,52 @@
                     -->
                     <fieldset>
                         <legend><?php echo $title_head; ?></legend>
+                         <div class="form-group">
+                    <label for="TypeName" class="col-md-2 control-label">Nama Obat</label>
+                    <div class="col-md-4">
+                        <?php
+                        $input = array('name' => 'nama','value'=>$nama, 'maxlength' => 64, 'id' => 'TypeName', 'class' => 'form-control', 'data-bv-notempty' => 'true');
+                        echo form_input($input);
+                        ?>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="TableName" class="col-md-2 control-label">Merk</label>
+                    <div class="col-md-4">
+                          <?php
+                        $input = array('name' => 'merk','value'=>$merk, 'maxlength' => 64, 'id' => 'TypeName', 'class' => 'form-control', 'data-bv-notempty' => 'true');
+                        echo form_input($input);
+                        ?>
+                    </div>
+                </div>
                         <div class="form-group">
-                            <label for="TypeID" class="col-md-2 control-label">Type Code</label>
-                            <div class="col-md-4">
-                                <?php
-                                $input = array('name' => 'id', 'value' => $id, 'maxlength' => 15, 'id' => 'TypeID', 'class' => 'input-small', 'disabled' => 'disabled', 'class' => 'form-control');
-                                echo form_input($input);
-                                ?>
-                            </div>
-                        </div>
+                    <label for="TableName" class="col-md-2 control-label">Satuan</label>
+                    <div class="col-md-4">
+                          <?php
+                        $input = array('name' => 'satuan','value'=>$satuan, 'maxlength' => 64, 'id' => 'TypeName', 'class' => 'form-control', 'data-bv-notempty' => 'true');
+                        echo form_input($input);
+                        ?>
+                    </div>
+                </div>
+                        
                         <div class="form-group">
-                            <label for="TypeName" class="col-md-2 control-label">Type Name</label>
-                            <div class="col-md-4">
-                                <?php
-                                $input = array('name' => 'name', 'value' => $name, 'maxlength' => 64, 'id' => 'TypeName', 'class' => 'form-control', 'data-bv-notempty' => 'true');
-                                echo form_input($input);
-                                ?>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="TableName" class="col-md-2 control-label">Table Name</label>
-                            <div class="col-md-4">
-                                <?php
-                                echo form_dropdown('table_name', $option_table_name, $table_name, 'id="TableName" class="form-control"');
-                                ?>
-                            </div>
-                        </div>
-                        <div id="TableNameOther">
-                            <div class="form-group">
-                                <label for="Other" class="col-md-2 control-label">Other</label>
-                                <div class="col-md-4">
-                                    <?php
-                                    $input = array('name' => 'table_name_other', 'maxlength' => 32, 'id' => 'Other', 'class' => 'form-control');
-                                    echo form_input($input);
-                                    ?>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="OrderNumber" class="col-md-2 control-label">Order Number</label>
-                            <div class="col-md-1">
-                                <?php
-                                $input = array('name' => 'tid', 'value' => $tid, 'id' => 'OrderNumber', 'class' => 'form-control', 'data-bv-notempty' => 'true');
-                                echo form_input($input);
-                                ?>
-                            </div>
-                        </div>
-
+                    <label for="TableName" class="col-md-2 control-label">Harga Jual</label>
+                    <div class="col-md-4">
+                          <?php
+                        $input = array('name' => 'harga_jual','value'=>$harga_jual, 'maxlength' => 64, 'id' => 'TypeName', 'class' => 'form-control', 'data-bv-notempty' => 'true');
+                        echo form_input($input);
+                        ?>
+                    </div>
+                </div>
                     </fieldset>
 
                     <div class="form-actions">
                         <div class="row">
                             <div class="col-md-12">
                                 <?php
-                                echo anchor('master_type', '<i class="fa fa-reply"></i>&nbsp;Cancel', array('class' => 'btn btn-small btn-info'));
+                                echo anchor('obat', '<i class="fa fa-reply"></i>&nbsp;Cancel', array('class' => 'btn btn-small btn-info'));
                                 echo nbs(1);
-                                echo form_hidden('id', $id);
+                                echo form_hidden('id_obat', $id_obat);
                                 ?>
                                 <button type="submit" name="btn_submit" value="Save" class="btn btn-small btn-primary"><i class="fa fa-save"></i> Submit</button> &nbsp;
                                 <a href="#" id="cdelete" data-toggle="modal" data-target="#myModal" class="btn btn-small btn-danger"><i class="fa fa-trash"></i>&nbsp;Delete</a>
@@ -128,5 +118,5 @@
 		</div>
 	</div>
 </div>
-<input type="hidden" name="id" id="delid" value="<?php echo $id; ?>">
+<input type="hidden" name="id" id="delid" value="<?php echo $id_obat; ?>">
 <?php echo form_close(); ?>

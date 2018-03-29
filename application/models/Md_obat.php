@@ -8,7 +8,7 @@ class Md_obat extends CI_Model {
 		$hasil = array();
 		
 		$sSQL = "
-			SELECT id, name, table_name, tid FROM $tbltypevar WHERE 1=1 ORDER BY table_name
+			SELECT * from tmst_obat
 		";
 		
 		$ambil = $this->db->query($sSQL);
@@ -20,212 +20,69 @@ class Md_obat extends CI_Model {
 		return $hasil;	
 	}
 
-	public function MDL_Select_DGtabel($page,$rows,$sort,$order,$item) {
-		$tbltypevar = $this->config->item('tmst_typevar');
 
-		$offset = ($page-1)*$rows;  
-  
-		$hasil = array(); 
-		$tmpData = array(); 
-		
-		$FILTER = strlen($item) ? "AND (id LIKE '%$item%' OR name LIKE '%$item%')" : "";  
-		$rs = $this->db->query("SELECT count(*) as jum FROM $tbltypevar WHERE 1=1 $FILTER");
-		$row = $rs->row();  
-		$total_rows = $row->jum;  
 
-		$sSQL = "
-			SELECT id, name FROM $tbltypevar 
-			WHERE 1=1 
-				$FILTER
-			ORDER BY $sort $order
-			LIMIT $offset,$rows
-		";
-
-		$ambil = $this->db->query($sSQL);
-		if ($ambil->num_rows() > 0) {
-			foreach ($ambil->result() as $data) {
-				$tmpData[] = $data;
-			}
-		}
-
-		
-		$hasil[] = array(
-		   'TotalRows' => $total_rows,
-		   'Rows' => $tmpData
-		);
-
-		return $hasil;	
-	}
-
-	public function MDL_SelectID($id){
-		$tbltypevar = $this->config->item('tmst_typevar');
-
-        return $this->db->get_where($tbltypevar, array('id' => $id))->row();
-    }
-	
 	// Fungsi Tambah Data
 	public function MDL_Insert() {
-		$tbltypevar = $this->config->item('tmst_typevar');
+		$tmst_obat = $this->config->item('tmst_obat');
 
-		$id = strtoupper($this->input->post('id'));
-		$name = $this->input->post('name');
-		$table_name = $this->input->post('table_name');
-		$table_name = ($table_name=='other') ? $this->input->post('table_name_other') : $table_name;
-		$tid = $this->input->post('tid');
-		$userid = $this->session->userdata('userid');
-		$recdate = date("Y-m-d H:i:s");
-		$moduser = $this->session->userdata('userid');
-		$moddate = date("Y-m-d H:i:s");
+		$id = $this->MDL_getAutoID();
+		
 		$data = array(
-			'id' => $id,
-			'name' => $name,
-			'table_name' => $table_name,
-			'tid' => $tid,
-			'userid' => $userid,
-			'recdate' => $recdate,
-			'moduser' => $moduser,
-			'moddate' => $moddate
+			'id_obat' => $id,
+			'nama' => $this->input->post('nama'),
+			'merk' => $this->input->post('merk'),
+			'satuan' => $this->input->post('satuan'),
+                        'harga_jual' => $this->input->post('harga_jual'),
+			'userid' => $this->session->userdata('userid'),
+                        'moduser' => $this->session->userdata('userid'),
+			'recdate' => date("Y-m-d H:i:s"),
+			'moddate' => date("Y-m-d H:i:s")
 			);
-		$res = $this->db->insert($tbltypevar, $data);
-		if($res) {
-			//Update Order Number
-			$sSQL = "
-				SELECT id, tid
-				FROM $tbltypevar
-				WHERE 1=1
-					AND id <> '$id'
-					AND table_name = '$table_name'
-					AND tid >= $tid
-				ORDER BY tid
-			";
-
-			$ambil = $this->db->query($sSQL);
-			if ($ambil->num_rows() > 0) {
-				foreach ($ambil->result() as $rows) {
-					$tid++;
-					$data = array(
-						'tid' => $tid
-					);
-
-					$this->db->where('id', $rows->id);
-					$this->db->update($tbltypevar, $data);
-				}
-			} 
-		}
+		$res = $this->db->insert('tmst_obat', $data);
+		
 	}
 
 	// Fungsi Ubah Data
-	public function MDL_Update($id){
+	public function MDL_Update($id_obat){
 		$tbltypevar = $this->config->item('tmst_typevar');
 
-		//$id = $this->input->post('id');
-		$name = $this->input->post('name');
-		$table_name = $this->input->post('table_name');
-		$table_name = ($table_name=='other') ? $this->input->post('table_name_other') : $table_name;
-		$tid = $this->input->post('tid');
-		$moduser = $this->session->userdata('userid');
-		$moddate = date("Y-m-d H:i:s");
+		
 		$data = array(
-			'name' => $name,
-			'table_name' => $table_name,
-			'tid' => $tid,
-			'moduser' => $moduser,
-			'moddate' => $moddate
+			'nama' => $this->input->post('nama'),
+			'merk' => $this->input->post('merk'),
+			'satuan' => $this->input->post('satuan'),
+                        'harga_jual' => $this->input->post('harga_jual'),
+			'moduser' => $this->session->userdata('userid'),
+			'moddate' => date("Y-m-d H:i:s")
 			);
 
-        $this->db->where('id', $id);
-		$res = $this->db->update($tbltypevar, $data);
-		if($res) {
-			//Update Order Number
-			$sSQL = "
-				SELECT id, tid
-				FROM $tbltypevar
-				WHERE 1=1
-					AND id <> '$id'
-					AND table_name = '$table_name'
-					AND tid >= $tid
-				ORDER BY tid
-			";
-
-			$ambil = $this->db->query($sSQL);
-			if ($ambil->num_rows() > 0) {
-				foreach ($ambil->result() as $rows) {
-					$tid++;
-					$data = array(
-						'tid' => $tid
-					);
-
-					$this->db->where('id', $rows->id);
-					$this->db->update($tbltypevar, $data);
-				}
-			} 
-		}
+                 $this->db->where('id_obat', $id_obat);
+		 $res = $this->db->update('tmst_obat', $data);
+		
     }
 
 	// Fungsi Hapus Data
-	public function MDL_Delete($id) {
-		$tbltypevar = $this->config->item('tmst_typevar');
+	public function MDL_Delete($id_obat) {
+		$tmst_obat = $this->config->item('tmst_obat');
 
-		$this->db->delete($tbltypevar, array('id' => $id));
+		$this->db->delete('tmst_obat', array('id_obat' => $id_obat));
 	}
 
-	public function MDL_isPermInsert($id){
-		$tblName = $this->config->item('tmst_typevar');
 
-		$res = $this->db->get_where($tblName, array('id' => $id))->num_rows();
+	public function MDL_SelectID($id_obat){
+		$tmst_obat = $this->config->item('tmst_obat');
 
-		if($res) {
-			return 0;
-		} else {
-			return 1;
-		}
+        return $this->db->get_where('tmst_obat', array('id_obat' => $id_obat))->row();
     }
-
-	public function MDL_isPermDelete($id){
-
-		$dt = $this->MDL_SelectID($id);
-		$table_name = $dt->table_name;
-		switch($table_name) {
-			case 'CURRENCY':
-				$tblName = $this->config->item('tmst_company');
-				$field = 'currency';
-			break;
-			case 'COMPANY_TYPE':
-				$tblName = $this->config->item('tmst_company');
-				$field = 'type';
-			break;
-			case 'TMPEMAIL_TYPE':
-				$tblName = $this->config->item('tmst_template_email');
-				$field = 'type';
-			break;
-			default:
-				return 1;
-			break;
-			
-		}
-
-		$sSQL = "
-			SELECT $field FROM $tblName WHERE $field = '$id' LIMIT 0,1
-		";
-
-		$ambil = $this->db->query($sSQL);
-		$res = $ambil->num_rows();
-
-		if($res) {
-			return 0;
-		} else {
-			return 1;
-		}
-    }
-	
 	public function MDL_getAutoID() {
 		$tbltypevar = $this->config->item('tmst_typevar');
 
 		$sSQL = "
 			SELECT MAX(p.num) AS no_urut
 			FROM (
-				SELECT CAST(SUBSTRING(id,5,5) AS UNSIGNED INTEGER) AS num
-				FROM $tbltypevar
+				SELECT CAST(SUBSTRING(id_obat,5,5) AS UNSIGNED INTEGER) AS num
+				FROM tmst_obat
 			) p
 			WHERE 1=1
 		";
@@ -238,34 +95,11 @@ class Md_obat extends CI_Model {
 			$no_urut = 1;
 		}
 
-		$hasil = sprintf("CMPY%05d",$no_urut);
+		$hasil = sprintf("MDC%05d",$no_urut);
 
 		return $hasil;	
 	}
 	
-	public function MDL_getMax_OrderNumber() {
-		$tbltypevar = $this->config->item('tmst_typevar');
-
-		$id = $_REQUEST['table_name'];
-		
-		$sSQL = "
-			SELECT MAX(tid) AS tid
-			FROM $tbltypevar
-			WHERE 1=1
-				AND table_name = '$id'
-			GROUP BY table_name
-		";
-
-		$ambil = $this->db->query($sSQL);
-		if ($ambil->num_rows() > 0) {
-			$data = $ambil->row();
-			$hasil = $data->tid + 1;
-		} else {
-			$hasil = 1;
-		}
-
-		return $hasil;	
-	}
 	
 }
 ?>

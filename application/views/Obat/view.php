@@ -4,9 +4,9 @@
     <legend>
         <h3>
             <?php 
-            echo anchor('master_type', $title, array('class'=>'link-control')); 
+            echo anchor('obat', $title, array('class'=>'link-control')); 
             echo nbs(2);
-            echo anchor('master_type/CTRL_New', '<i class="fa fa-plus"></i>', array('class'=>'btn btn-success btn-mini'));
+            echo anchor('obat/CTRL_New', '<i class="fa fa-plus"></i>', array('class'=>'btn btn-success btn-mini'));
             ?>
         </h3>
     </legend>
@@ -56,10 +56,11 @@ This area used as dropdown edit box
                             <table id="dt_basic" class="table table-striped table-bordered table-hover">
                                 <thead class="danger">
                                     <tr>
-                                        <th width="100">Type Code</th>
-                                        <th width="150">Type Name</th> 
-                                        <th width="150">Table Name</th> 
-                                        <th width="50">Order Number</th> 
+                                        <th width="100">Kode Obat</th>
+                                        <th width="150">Nama</th> 
+                                        <th width="150">Merk</th> 
+                                        <th width="50">Satuan</th> 
+                                        <th width="50">Harga Jual</th> 
                                         <th width="10" class="center">Action</th> 
                                     </tr>
                                 </thead>
@@ -67,13 +68,14 @@ This area used as dropdown edit box
                                 <tbody>
                                     <?php foreach ($results as $row) { ?>
                                     <tr>
-                                        <td><?php echo $row->id; ?></td>
-                                        <td><?php echo $row->name; ?></td>
-                                        <td><?php echo $row->table_name; ?></td>
-                                        <td><?php echo $row->tid; ?></td>
+                                        <td><?php echo $row->id_obat; ?></td>
+                                        <td><?php echo $row->nama; ?></td>
+                                        <td><?php echo $row->merk; ?></td>
+                                        <td><?php echo $row->satuan; ?></td>
+                                        <td><?php echo $row->harga_jual; ?></td>
                                         <td class="center">
                                             <?php 
-                                                                      echo anchor('master_type/CTRL_Edit/' . $row->id, '<button class="btn btn-xs btn-primary"><i class="fa fa-pencil bigger-120"></i></button>');
+                                                                      echo anchor('obat/CTRL_Edit/' . $row->id_obat, '<button class="btn btn-xs btn-primary"><i class="fa fa-pencil bigger-120"></i></button>');
                                             ?>
                                         </td>
                                     </tr>
