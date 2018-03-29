@@ -55,12 +55,12 @@ class Dokter extends CI_Controller {
             $this->load->view('template_admin', $data);
         } else {
             if ($this->input->post('close')) {
-                redirect('obat');
+                redirect('dokter');
             } elseif ($this->input->post('btn_submit')) {
                
                 
                     $this->md_dokter->MDL_Insert();
-                    redirect('obat');
+                    redirect('dokter');
                 
             } else {
                 /* Bread crum */
@@ -84,8 +84,8 @@ class Dokter extends CI_Controller {
                 $data['title_head'] = sprintf("%s - Add New",$nm_title);
                 $data['title'] = sprintf("%s",$nm_title);
 
-                $data['url'] = 'obat/CTRL_New';
-                $data['url_tid'] = sprintf("%s%s/",site_url(),"obat/CTRL_Select_OrderNumber");
+                $data['url'] = 'dokter/CTRL_New';
+                $data['url_tid'] = sprintf("%s%s/",site_url(),"dokter/CTRL_Select_OrderNumber");
                 $data['page'] = 'Dokter/form';
                 $data['plugin'] = 'Dokter/plugin';
                 $this->load->view('template_admin', $data);
@@ -106,11 +106,11 @@ class Dokter extends CI_Controller {
             $this->load->view('template_admin', $data);
         } else {
             if ($this->input->post('close')) {
-                redirect('obat');
+                redirect('dokter');
             } elseif ($this->input->post('btn_submit')) {
                 
                 $this->md_dokter->MDL_Update($id_dokter);
-                redirect('obat');
+                redirect('dokter');
             } else {
                 /* Bread crum */
                 $this->load->model('md_ref_json');
@@ -139,9 +139,9 @@ class Dokter extends CI_Controller {
                 $nm_title = $this->auth->Auth_getNameMenu();
                 $data['title_head'] = sprintf("%s - Update",$nm_title);
                 $data['title'] = sprintf("%s",$nm_title);
-                $data['url'] = 'obat/CTRL_Edit/'.$id_dokter;
-                $data['url_del'] = 'obat/CTRL_Delete/'.$id_dokter;
-                $data['url_tid'] = sprintf("%s%s/",site_url(),"obat/CTRL_Select_OrderNumber");
+                $data['url'] = 'dokter/CTRL_Edit/'.$id_dokter;
+                $data['url_del'] = 'dokter/CTRL_Delete/'.$id_dokter;
+                $data['url_tid'] = sprintf("%s%s/",site_url(),"dokter/CTRL_Select_OrderNumber");
                 $data['page'] = 'Dokter/form_edit';
                 $data['plugin'] = 'Dokter/plugin';
                 $this->load->view('template_admin', $data);
@@ -163,7 +163,7 @@ class Dokter extends CI_Controller {
         } else {
             
                 $this->md_dokter->MDL_Delete($id);
-                redirect('obat');
+                redirect('dokter');
             
         }
     }

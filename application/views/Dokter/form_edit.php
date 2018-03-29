@@ -78,9 +78,9 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <?php
-                                echo anchor('obat', '<i class="fa fa-reply"></i>&nbsp;Cancel', array('class' => 'btn btn-small btn-info'));
+                                echo anchor('dokter', '<i class="fa fa-reply"></i>&nbsp;Cancel', array('class' => 'btn btn-small btn-info'));
                                 echo nbs(1);
-                                echo form_hidden('id_obat', $id_obat);
+                                echo form_hidden('id_dokter', $id_dokter);
                                 ?>
                                 <button type="submit" name="btn_submit" value="Save" class="btn btn-small btn-primary"><i class="fa fa-save"></i> Submit</button> &nbsp;
                                 <a href="#" id="cdelete" data-toggle="modal" data-target="#myModal" class="btn btn-small btn-danger"><i class="fa fa-trash"></i>&nbsp;Delete</a>
@@ -129,5 +129,5 @@
 		</div>
 	</div>
 </div>
-<input type="hidden" name="id" id="delid" value="<?php echo $id_obat; ?>">
+<input type="hidden" name="id" id="delid" value="<?php echo $id_dokter; ?>">
 <?php echo form_close(); ?>

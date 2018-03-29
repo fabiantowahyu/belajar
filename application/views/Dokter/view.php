@@ -4,9 +4,9 @@
     <legend>
         <h3>
             <?php 
-            echo anchor('obat', $title, array('class'=>'link-control')); 
+            echo anchor('dokter', $title, array('class'=>'link-control')); 
             echo nbs(2);
-            echo anchor('obat/CTRL_New', '<i class="fa fa-plus"></i>', array('class'=>'btn btn-success btn-mini'));
+            echo anchor('dokter/CTRL_New', '<i class="fa fa-plus"></i>', array('class'=>'btn btn-success btn-mini'));
             ?>
         </h3>
     </legend>
@@ -56,12 +56,12 @@ This area used as dropdown edit box
                             <table id="dt_basic" class="table table-striped table-bordered table-hover">
                                 <thead class="danger">
                                     <tr>
-                                        <th width="100">ID Dokter</th>
-                                        <th width="150">Nama</th> 
-                                        <th width="150">Alamat</th> 
-                                        <th width="50">Telp</th> 
-                                        <th width="50">Poli</th> 
-                                        <th width="50">Jadwal</th> 
+                                        <th >ID Dokter</th>
+                                        <th >Nama</th> 
+                                        <th >Alamat</th> 
+                                        <th >Telp</th> 
+                                        <th>Poli</th> 
+                                        <th >Jadwal</th> 
                                         <th width="10" class="center">Action</th> 
                                     </tr>
                                 </thead>
@@ -72,11 +72,12 @@ This area used as dropdown edit box
                                         <td><?php echo $row->id_dokter; ?></td>
                                         <td><?php echo $row->nama; ?></td>
                                         <td><?php echo $row->alamat; ?></td>
+                                        <td><?php echo $row->telp; ?></td>
                                         <td><?php echo $row->poli; ?></td>
                                         <td><?php echo $row->jadwal; ?></td>
                                         <td class="center">
                                             <?php 
-                                                                      echo anchor('obat/CTRL_Edit/' . $row->id_dokter, '<button class="btn btn-xs btn-primary"><i class="fa fa-pencil bigger-120"></i></button>');
+                                                                      echo anchor('dokter/CTRL_Edit/' . $row->id_dokter, '<button class="btn btn-xs btn-primary"><i class="fa fa-pencil bigger-120"></i></button>');
                                             ?>
                                         </td>
                                     </tr>

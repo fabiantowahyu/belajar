@@ -66,6 +66,15 @@
                         ?>
                     </div>
                 </div>
+                        <div class="form-group">
+                    <label for="TableName" class="col-md-2 control-label">Jadwal</label>
+                    <div class="col-md-4">
+                          <?php
+                        $input = array('name' => 'jadwal', 'maxlength' => 64, 'id' => 'TypeName', 'class' => 'form-control', 'data-bv-notempty' => 'true');
+                        echo form_input($input);
+                        ?>
+                    </div>
+                </div>
                 
                 
             </fieldset>
@@ -74,7 +83,7 @@
                 <div class="row">
                     <div class="col-md-12">
                         <?php
-                        echo anchor('obat', '<i class="fa fa-reply"></i>&nbsp;Cancel', array('class' => 'btn btn-small btn-info'));
+                        echo anchor('dokter', '<i class="fa fa-reply"></i>&nbsp;Cancel', array('class' => 'btn btn-small btn-info'));
                         ?>
                         <button class="btn btn-primary" name="btn_submit"  value="Save"  type="submit">
                             <i class="fa fa-save"></i>
