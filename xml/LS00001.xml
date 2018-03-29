@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<lse_batubara_document>
+  <header>
+    <npwp>12345</npwp>
+    <namapersh>LEBUSWANA PERKASA</namapersh>
+    <alamat>MUTIARA 52, JL. VICO RT. 003, SUNGAI SELUANG, SEMBOJA KUTAI KATANEGARA - KALIMANTAN TIMUR, INDONESIA</alamat>
+    <telp>11111</telp>
+    <fax/>
+    <idprop/>
+    <nmprop/>
+    <idkab/>
+    <nmkab/>
+    <jenisls>LS0012</jenisls>
+    <nols>LS00002</nols>
+    <tglls>2017-07-18</tglls>
+    <tglakhirls>2017-08-17</tglakhirls>
+    <urbarang/>
+    <noet>03.ET-04.14.0040</noet>
+    <tglet>2014-09-08</tglet>
+    <tglakhiret/>
+    <nospe/>
+    <tglakhirspe/>
+    <nopveb/>
+    <tglpveb/>
+    <tempatperiksa>JETTY LEMBUSWANA PERKASA, SAMARINDA, EAST KALIMANTAN</tempatperiksa>
+    <tglperiksa>2017-07-12</tglperiksa>
+    <portperiksa>SGSIN</portperiksa>
+    <nopacklist>LSP-18072017KCH09</nopacklist>
+    <tglpacklist>2017-07-18</tglpacklist>
+    <noinvoice>LSP-039</noinvoice>
+    <tglinvoice>2017-07-18</tglinvoice>
+    <fobusd>190184.00</fobusd>
+    <kurs>USD</kurs>
+    <namaimp>KCH ENERGY CO</namaimp>
+    <alamatimp>SUITE 4004 TRADE TOWER, 159-1 SAMSUNG-DONG, GANGNAM-GUM, SEOUL, KOREA</alamatimp>
+    <negaraimp>ID</negaraimp>
+    <portmuat>SGSIN</portmuat>
+    <tglmuat>2017-07-18</tglmuat>
+    <negaratujuan>SIN</negaratujuan>
+    <porttujuan>SGSIN</porttujuan>
+    <namavessel>MV. K FAITH</namavessel>
+    <tglmuatvessel>2017-07-15</tglmuatvessel>
+    <noiupop>540/682/IUP-OP/MB-PBAT/III/2010</noiupop>
+    <tgliupop>2010-03-31</tgliupop>
+    <noiupopkpp/>
+    <tgliupopkpp>0000-00-00</tgliupopkpp>
+    <noiupopkolah/>
+    <tgliupopkolah>0000-00-00</tgliupopkolah>
+    <nobayarroyalti/>
+    <tglbayarroyalti>2017-07-03</tglbayarroyalti>
+    <idlc>M04FB1707NS00032</idlc>
+    <nolc>12345</nolc>
+    <tgllc>2017-07-05</tgllc>
+    <modetransport>Containers</modetransport>
+    <cargotype>In Bulk</cargotype>
+    <nopetikemas>-</nopetikemas>
+    <nosegel>-</nosegel>
+    <catatanperiksa>Cara Pembayaran Menggunakan L/C Dengan No. M04FB1707NS00032, tanggal: 05 july 2017</catatanperiksa>
+    <kesimpulan/>
+  </header>
+  <komoditas>
+    <loop>
+      <seri>1</seri>
+      <hs>1234567</hs>
+      <uraian>asdasd</uraian>
+      <volume>123123</volume>
+      <satuan>TNE</satuan>
+      <fob>1000.00</fob>
+      <kurs>USD</kurs>
+      <noiup>540/682/IUP-OP/MB-PBAT/III/2010</noiup>
+      <tgliup>2007-12-12</tgliup>
+    </loop>
+    <loop>
+      <seri>1</seri>
+      <hs>12345</hs>
+      <uraian>juhgbuiy</uraian>
+      <volume>6546</volume>
+      <satuan>TNE</satuan>
+      <fob>46546.00</fob>
+      <kurs>USD</kurs>
+      <noiup>540/682/IUP-OP/MB-PBAT/III/2010</noiup>
+      <tgliup>2007-12-12</tgliup>
+    </loop>
+  </komoditas>
+  <detil_batubara>
+    <loop>
+      <seri>26</seri>
+      <cal_arb>123123.00</cal_arb>
+      <cal_adb>123123.00</cal_adb>
+      <tm_arb>123123.00</tm_arb>
+      <tash_adb>123.00</tash_adb>
+      <tsulf_adb>123.00</tsulf_adb>
+      <klasifikasibb>1234</klasifikasibb>
+      <keterangan>asdasdad</keterangan>
+    </loop>
+  </detil_batubara>
+  <detil_asal>
+    <loop>
+      <seri>15</seri>
+      <npwp>111111</npwp>
+      <nmpersh>Customer / Exporter Name Test 1</nmpersh>
+      <idprop>1</idprop>
+      <nmprop>Bali</nmprop>
+      <royalti>12345.00</royalti>
+      <kurs>USD</kurs>
+    </loop>
+  </detil_asal>
+</lse_batubara_document>
