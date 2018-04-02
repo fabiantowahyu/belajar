@@ -78,7 +78,7 @@ class Diagnosa extends CI_Controller {
                 $data['breadcrum'] = $breadcrum;
                 /* end */
 
-               
+                $data['option_poli'] = $this->CTRL_Option_Poli();
 
                 $nm_title = $this->auth->Auth_getNameMenu();
                 $data['title_head'] = sprintf("%s - Add New",$nm_title);
@@ -130,6 +130,7 @@ class Diagnosa extends CI_Controller {
                 $hasil = $this->md_diagnosa->MDL_SelectID($id_diagnosa);
                 $data['id_diagnosa'] = $hasil->id_diagnosa;
                 $data['nama'] = $hasil->nama;
+                $data['option_poli'] = $this->CTRL_Option_Poli();
                 $data['poli'] = $hasil->poli;
 
                
@@ -186,6 +187,17 @@ class Diagnosa extends CI_Controller {
             $option[$row->table_name] = $row->table_name;
         }
         $option['other'] = 'Other';
+
+        return $option;
+    }
+    
+    public function CTRL_Option_Poli() {
+        $this->load->Model('md_ref_json');
+        $AryCompany = $this->md_ref_json->MDL_Select_MasterType('POLI_JENIS');
+        $option[''] = 'Pilih Poli';
+        foreach($AryCompany as $row) {
+            $option[$row->id] = $row->name;
+        }
 
         return $option;
     }

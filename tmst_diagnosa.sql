@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 02, 2018 at 09:52 AM
+-- Generation Time: Apr 02, 2018 at 11:31 AM
 -- Server version: 10.1.16-MariaDB
 -- PHP Version: 5.6.24
 
@@ -28,7 +28,7 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `tmst_diagnosa` (
   `id` int(11) NOT NULL,
-  `id_tindakan` varchar(32) NOT NULL,
+  `id_diagnosa` varchar(32) NOT NULL,
   `nama` text NOT NULL,
   `poli` varchar(256) NOT NULL,
   `userid` varchar(64) NOT NULL,
@@ -41,7 +41,7 @@ CREATE TABLE `tmst_diagnosa` (
 -- Dumping data for table `tmst_diagnosa`
 --
 
-INSERT INTO `tmst_diagnosa` (`id`, `id_tindakan`, `nama`, `poli`, `userid`, `recdate`, `moddate`, `moduser`) VALUES
+INSERT INTO `tmst_diagnosa` (`id`, `id_diagnosa`, `nama`, `poli`, `userid`, `recdate`, `moddate`, `moduser`) VALUES
 (1, 'MDC00002', 'asd1', 'asd2', 'EMP00001', '2018-03-29 14:11:26', '2018-03-29 14:18:27', 'EMP00001');
 
 --
