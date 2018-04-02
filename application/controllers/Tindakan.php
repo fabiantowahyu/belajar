@@ -78,7 +78,8 @@ class Tindakan extends CI_Controller {
                 $data['breadcrum'] = $breadcrum;
                 /* end */
 
-               
+                $data['option_poli'] =  $this->CTRL_Option_Poli();
+                $data['option_jenis_tindakan'] =  $this->CTRL_Option_Jenis_Tindakan();
 
                 $nm_title = $this->auth->Auth_getNameMenu();
                 $data['title_head'] = sprintf("%s - Add New",$nm_title);
@@ -130,9 +131,14 @@ class Tindakan extends CI_Controller {
                 $hasil = $this->md_tindakan->MDL_SelectID($id_tindakan);
                 $data['id_tindakan'] = $hasil->id_tindakan;
                 $data['nama'] = $hasil->nama;
+                $data['option_poli'] =  $this->CTRL_Option_Poli();
+                $data['option_jenis_tindakan'] =  $this->CTRL_Option_Jenis_Tindakan();
                 $data['poli'] = $hasil->poli;
-                $data['tarif'] = $hasil->tarif;
                 $data['jenis'] = $hasil->jenis;
+                $data['tarif_umum'] = $hasil->tarif_umum;
+                $data['tarif_member'] = $hasil->tarif_member;
+                $data['fee_dokter'] = $hasil->fee_dokter;
+                $data['fee_nurse'] = $hasil->fee_nurse;
 
                
                 $nm_title = $this->auth->Auth_getNameMenu();
@@ -180,14 +186,24 @@ class Tindakan extends CI_Controller {
         }
     }
 
-    public function CTRL_Option_TableName() {
-
-        $AryCompany = $this->md_tindakan->MDL_Select();
-        $option[''] = 'Choose a Table Name...';
+    public function CTRL_Option_Poli() {
+        $this->load->Model('md_ref_json');
+        $AryCompany = $this->md_ref_json->MDL_Select_MasterType('POLI_JENIS');
+        $option[''] = 'Pilih Poli';
         foreach($AryCompany as $row) {
-            $option[$row->table_name] = $row->table_name;
+            $option[$row->id] = $row->name;
         }
-        $option['other'] = 'Other';
+
+        return $option;
+    }
+    
+    public function CTRL_Option_Jenis_Tindakan() {
+        $this->load->Model('md_ref_json');
+        $AryCompany = $this->md_ref_json->MDL_Select_MasterType('JENIS_TINDAKAN');
+        
+        foreach($AryCompany as $row) {
+            $option[$row->id] = $row->name;
+        }
 
         return $option;
     }

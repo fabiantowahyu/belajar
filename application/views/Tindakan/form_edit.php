@@ -33,7 +33,15 @@
                         ?>
                     </div>
                 </div>
-                <div class="form-group">
+                       <div class="form-group">
+                                                <label for="" class="col-md-2 control-label" >Poli<span class="text-danger">*</span></label>
+                                                <div class="col-md-4">
+                                                    <?php
+                                                    echo form_dropdown('poli', $option_poli, $poli, 'id ="client_id" class="form-control" data-bv-notempty="true" style="width:100%"');
+                                                    ?>
+                                                </div>
+                                            </div>
+<!--                <div class="form-group">
                     <label for="TableName" class="col-md-2 control-label">Poli</label>
                     <div class="col-md-4">
                           <?php
@@ -41,8 +49,16 @@
                         echo form_input($input);
                         ?>
                     </div>
-                </div>
-                        <div class="form-group">
+                </div>-->
+<div class="form-group">
+                                                <label for="" class="col-md-2 control-label" >Poli<span class="text-danger">*</span></label>
+                                                <div class="col-md-4">
+                                                    <?php
+                                                    echo form_dropdown('jenis', $option_jenis_tindakan, $jenis, 'id ="client_id" class="form-control" data-bv-notempty="true" style="width:100%"');
+                                                    ?>
+                                                </div>
+                                            </div>
+<!--                        <div class="form-group">
                     <label for="TableName" class="col-md-2 control-label">Jenis</label>
                     <div class="col-md-4">
                           <?php
@@ -50,17 +66,48 @@
                         echo form_input($input);
                         ?>
                     </div>
-                </div>
+                </div>-->
                         
                         <div class="form-group">
-                    <label for="TableName" class="col-md-2 control-label">Tarif</label>
+                    <label for="TableName" class="col-md-2 control-label">Tarif Umum</label>
                     <div class="col-md-4">
                           <?php
-                        $input = array('name' => 'tarif','value'=>$tarif, 'maxlength' => 64, 'id' => 'TypeName', 'class' => 'form-control', 'data-bv-notempty' => 'true');
+                        $input = array('name' => 'tarif_umum','value'=>$tarif_umum, 'maxlength' => 64, 'id' => 'TypeName', 'class' => 'form-control', 'data-bv-notempty' => 'true');
                         echo form_input($input);
                         ?>
                     </div>
                 </div>
+
+<div class="form-group">
+                    <label for="TableName" class="col-md-2 control-label">Tarif Member</label>
+                    <div class="col-md-4">
+                          <?php
+                        $input = array('name' => 'tarif_member','value'=>$tarif_member, 'maxlength' => 64, 'id' => 'TypeName', 'class' => 'form-control', 'data-bv-notempty' => 'true');
+                        echo form_input($input);
+                        ?>
+                    </div>
+                </div>
+
+<div class="form-group">
+                    <label for="TableName" class="col-md-2 control-label">Fee Dokter</label>
+                    <div class="col-md-4">
+                          <?php
+                        $input = array('name' => 'fee_dokter','value'=>$fee_dokter, 'maxlength' => 64, 'id' => 'TypeName', 'class' => 'form-control', 'data-bv-notempty' => 'true');
+                        echo form_input($input);
+                        ?>
+                    </div>
+                </div>
+
+<div class="form-group">
+                    <label for="TableName" class="col-md-2 control-label">Fee Nurse</label>
+                    <div class="col-md-4">
+                          <?php
+                        $input = array('name' => 'fee_nurse','value'=>$fee_nurse, 'maxlength' => 64, 'id' => 'TypeName', 'class' => 'form-control', 'data-bv-notempty' => 'true');
+                        echo form_input($input);
+                        ?>
+                    </div>
+                </div>
+                
                     </fieldset>
 
                     <div class="form-actions">

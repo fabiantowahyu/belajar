@@ -72,7 +72,7 @@ This area used as dropdown edit box
                                         <td><?php echo $row->nama; ?></td>
                                         <td><?php echo $row->poli; ?></td>
                                         <td><?php echo $row->jenis; ?></td>
-                                        <td><?php echo $row->tarif; ?></td>
+                                        <td><?php echo $row->tarif_umum; ?></td>
                                         <td class="center">
                                             <?php 
                                                                       echo anchor('tindakan/CTRL_Edit/' . $row->id_tindakan, '<button class="btn btn-xs btn-primary"><i class="fa fa-pencil bigger-120"></i></button>');

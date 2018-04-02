@@ -33,7 +33,10 @@ class Md_tindakan extends CI_Model {
 			'nama' => $this->input->post('nama'),
 			'poli' => $this->input->post('poli'),
 			'jenis' => $this->input->post('jenis'),
-                        'tarif' => $this->input->post('tarif'),
+                        'tarif_umum' => $this->input->post('tarif_umum'),
+                        'tarif_member' => $this->input->post('tarif_member'),
+                        'fee_dokter' => $this->input->post('fee_dokter'),
+                        'fee_nurse' => $this->input->post('fee_nurse'),
 			'userid' => $this->session->userdata('userid'),
                         'moduser' => $this->session->userdata('userid'),
 			'recdate' => date("Y-m-d H:i:s"),
@@ -52,7 +55,10 @@ class Md_tindakan extends CI_Model {
 			'nama' => $this->input->post('nama'),
 			'poli' => $this->input->post('poli'),
 			'jenis' => $this->input->post('jenis'),
-                        'tarif' => $this->input->post('tarif'),
+                        'tarif_umum' => $this->input->post('tarif_umum'),
+                        'tarif_member' => $this->input->post('tarif_member'),
+                        'fee_dokter' => $this->input->post('fee_dokter'),
+                        'fee_nurse' => $this->input->post('fee_nurse'),
 			'moduser' => $this->session->userdata('userid'),
 			'moddate' => date("Y-m-d H:i:s")
 			);
