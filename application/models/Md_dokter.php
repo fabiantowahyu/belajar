@@ -34,6 +34,7 @@ class Md_dokter extends CI_Model {
 			'alamat' => $this->input->post('alamat'),
 			'telp' => $this->input->post('telp'),
                         'poli' => $this->input->post('poli'),
+                        'jabatan' => $this->input->post('jabatan'),
                         'jadwal' => $this->input->post('jadwal'),
 			'userid' => $this->session->userdata('userid'),
                         'moduser' => $this->session->userdata('userid'),
@@ -54,6 +55,7 @@ class Md_dokter extends CI_Model {
 			'alamat' => $this->input->post('alamat'),
 			'telp' => $this->input->post('telp'),
                         'poli' => $this->input->post('poli'),
+                        'jabatan' => $this->input->post('jabatan'),
                         'jadwal' => $this->input->post('jadwal'),
 			'moduser' => $this->session->userdata('userid'),
 			'moddate' => date("Y-m-d H:i:s")

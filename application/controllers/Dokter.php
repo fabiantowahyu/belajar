@@ -78,7 +78,7 @@ class Dokter extends CI_Controller {
                 $data['breadcrum'] = $breadcrum;
                 /* end */
 
-               
+                $data['option_jabatan'] = $this->CTRL_Option_Jabatan();
 
                 $nm_title = $this->auth->Auth_getNameMenu();
                 $data['title_head'] = sprintf("%s - Add New",$nm_title);
@@ -134,6 +134,8 @@ class Dokter extends CI_Controller {
                 $data['poli'] = $hasil->poli;
                 $data['telp'] = $hasil->telp;
                 $data['jadwal'] = $hasil->jadwal;
+                $data['jabatan'] = $hasil->jabatan;
+                $data['option_jabatan'] = $this->CTRL_Option_Jabatan();
 
                
                 $nm_title = $this->auth->Auth_getNameMenu();
@@ -168,6 +170,15 @@ class Dokter extends CI_Controller {
         }
     }
 
-    
+    public function CTRL_Option_Jabatan() {
+        $this->load->Model('md_ref_json');
+        $AryCompany = $this->md_ref_json->MDL_Select_MasterType('JENIS_KARYAWAN');
+        $option[''] = 'Pilih Poli';
+        foreach($AryCompany as $row) {
+            $option[$row->id] = $row->name;
+        }
+
+        return $option;
+    }
 
 }

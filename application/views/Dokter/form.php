@@ -30,7 +30,7 @@
                         
                 
                 <div class="form-group">
-                    <label for="TypeName" class="col-md-2 control-label">Nama Dokter</label>
+                    <label for="TypeName" class="col-md-2 control-label">Nama</label>
                     <div class="col-md-4">
                         <?php
                         $input = array('name' => 'nama', 'maxlength' => 64, 'id' => 'TypeName', 'class' => 'form-control', 'data-bv-notempty' => 'true');
@@ -38,6 +38,14 @@
                         ?>
                     </div>
                 </div>
+                        <div class="form-group">
+                                                <label for="" class="col-md-2 control-label" >Jabatan<span class="text-danger">*</span></label>
+                                                <div class="col-md-4">
+                                                    <?php
+                                                    echo form_dropdown('jabatan', $option_jabatan, '', 'id ="client_id" class="form-control" data-bv-notempty="true" style="width:100%"');
+                                                    ?>
+                                                </div>
+                                            </div>
                 <div class="form-group">
                     <label for="TableName" class="col-md-2 control-label">Alamat</label>
                     <div class="col-md-4">
