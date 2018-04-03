@@ -1,30 +1,49 @@
 <?php if (!defined('BASEPATH')) exit('No direct script access allowed'); ?>
-<div class="row-fluid">
-    <!-- NEW WIDGET START -->
-    <article class="col-sm-12 col-md-12 col-lg-12">
 
-        <!-- Widget ID (each widget will need unique ID)-->
-        <div class="jarviswidget" id="wid-id-0" data-widget-colorbutton="false" data-widget-editbutton="false">
-            <header>
-                <span class="widget-icon"> <i class="fa fa-eye"></i> </span>
-                <h2>Edit Form <?php echo $title_head; ?></h2>
-            </header>
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-lg-10">
+        <h2><?php echo $title; ?>
 
-            <!-- widget div-->
-            <div>
-                <!-- widget content -->
-                <div class="widget-body">
-                    <?php echo form_open($url, array('class' => 'form-horizontal', 'id' => 'validation-form', 'data-bv-message' => 'This value is not valid', 'data-bv-feedbackicons-valid' => 'glyphicon glyphicon-ok', 'data-bv-feedbackicons-invalid' => 'glyphicon glyphicon-remove', 'data-bv-feedbackicons-validating' => 'glyphicon glyphicon-refresh')); ?>
-                    <!--
-                                    <form action=<?php echo $url ?> method="post" id="validation-form" class="form-horizontal"
-                                            data-bv-message="This value is not valid"
-                                            data-bv-feedbackicons-valid="glyphicon glyphicon-ok"
-                                            data-bv-feedbackicons-invalid="glyphicon glyphicon-remove"
-                                            data-bv-feedbackicons-validating="glyphicon glyphicon-refresh">
-                    -->
-                    <fieldset>
-                        <legend><?php echo $title_head; ?></legend>
-                         <div class="form-group">
+	</h2>
+	<div class="col-lg-12">
+	    <?php
+	    if (!empty($breadcrum))
+		echo $breadcrum;
+	    ?>
+
+	</div>
+
+
+    </div>
+</div>
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div class="row">
+	<div class="col-lg-12">
+	    <div class="ibox float-e-margins">
+		<div class="ibox-title">
+		    <h5><i class="fa fa-pencil text-warning"></i> Form <small> update</small></h5>
+		    <div class="ibox-tools">
+			<a class="collapse-link">
+			    <i class="fa fa-chevron-up"></i>
+			</a>
+			<a class="dropdown-toggle" data-toggle="dropdown" href="#">
+			    <i class="fa fa-wrench"></i>
+			</a>
+			<ul class="dropdown-menu dropdown-user">
+			    <li><a href="#">Config option 1</a>
+			    </li>
+			    <li><a href="#">Config option 2</a>
+			    </li>
+			</ul>
+			<a class="close-link">
+			    <i class="fa fa-times"></i>
+			</a>
+		    </div>
+		</div>
+		<div class="ibox-content">
+		    <?php echo form_open($url, array('class' => 'form-horizontal', 'id' => 'validation-form', 'data-bv-message' => 'This value is not valid', 'data-bv-feedbackicons-valid' => 'glyphicon glyphicon-ok', 'data-bv-feedbackicons-invalid' => 'glyphicon glyphicon-remove', 'data-bv-feedbackicons-validating' => 'glyphicon glyphicon-refresh')); ?>
+
+		 <div class="form-group">
                     <label for="TypeName" class="col-md-2 control-label">Nama</label>
                     <div class="col-md-4">
                         <?php
@@ -80,62 +99,57 @@
                         ?>
                     </div>
                 </div>
-                    </fieldset>
+		    <div class="hr-line-dashed"></div>
 
-                    <div class="form-actions">
-                        <div class="row">
+		    <div class="form-group">
+                        <div class="pull-right">
                             <div class="col-md-12">
-                                <?php
+				 <?php
                                 echo anchor('dokter', '<i class="fa fa-reply"></i>&nbsp;Cancel', array('class' => 'btn btn-small btn-info'));
                                 echo nbs(1);
                                 echo form_hidden('id_dokter', $id_dokter);
                                 ?>
                                 <button type="submit" name="btn_submit" value="Save" class="btn btn-small btn-primary"><i class="fa fa-save"></i> Submit</button> &nbsp;
                                 <a href="#" id="cdelete" data-toggle="modal" data-target="#myModal" class="btn btn-small btn-danger"><i class="fa fa-trash"></i>&nbsp;Delete</a>
-                            </div>
+                             </div>
                         </div>
                     </div>
 
-                    <?php echo form_close(); ?>
-
-                </div>
-                <!-- end widget content -->
-
-            </div>
-            <!-- end widget div -->
-
-        </div>
-    </article>
-    <!-- end widget -->
+		    <?php echo form_close(); ?>
+		    </form>
+		</div>
+	    </div>
+	</div>
+    </div>
 </div>
 
 <?php echo form_open($url_del, array('name' => 'del', 'id' => 'del')); ?>
 <!-- Modal -->
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-	<div class="modal-dialog">
-		<div class="modal-content">
-			<div class="modal-header">
-				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
-					&times;
-				</button>
-				<h4 class="modal-title" id="myModalLabel"><i class="fa fa-times"></i>&nbsp;Delete</a></h4>
-			</div>
-			<div class="modal-body">
-				<p>
-					Are you sure to delete this data..!!!
-				</p>
-			</div>
+    <div class="modal-dialog">
+	<div class="modal-content">
+	    <div class="modal-header">
+		<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+		    &times;
+		</button>
+		<h4 class="modal-title" id="myModalLabel"><i class="fa fa-times"></i>&nbsp;Delete</a></h4>
+	    </div>
+	    <div class="modal-body">
+		<p>
+		    Are you sure to delete this data..!!!
+		</p>
+	    </div>
 
-			<div class="modal-footer">
-				<button type="button" class="btn btn-default" data-dismiss="modal">
-					Cancel
-				</button>
-				<button type="submit" name="btn_submit_delete" class="btn btn-danger">
-					Delete
-				</button>
-			</div>
-		</div>
+	    <div class="modal-footer">
+		<button type="button" class="btn btn-default" data-dismiss="modal">
+		    Cancel
+		</button>
+		<button type="submit" name="btn_submit_delete" class="btn btn-danger">
+		    Delete
+		</button>
+	    </div>
 	</div>
+    </div>
 </div>
 <input type="hidden" name="id" id="delid" value="<?php echo $id_dokter; ?>">
-<?php echo form_close(); ?>
+<?php echo form_close(); ?> 
