@@ -109,8 +109,10 @@ class Tindakan extends CI_Controller {
             if ($this->input->post('close')) {
                 redirect('tindakan');
             } elseif ($this->input->post('btn_submit')) {
-                $id = $this->input->post('id');
                 $this->md_tindakan->MDL_Update($id_tindakan);
+                redirect('tindakan');
+            } elseif ($this->input->post('btn_submit_consumable')) {
+                $this->md_tindakan->MDL_InsertConsumable($id_tindakan);
                 redirect('tindakan');
             } else {
                 /* Bread crum */
@@ -139,6 +141,9 @@ class Tindakan extends CI_Controller {
                 $data['tarif_member'] = $hasil->tarif_member;
                 $data['fee_dokter'] = $hasil->fee_dokter;
                 $data['fee_nurse'] = $hasil->fee_nurse;
+                
+                
+                $data['results_consumable'] = $this->md_tindakan->MDL_SelectConsumable($id_tindakan);
 
                
                 $nm_title = $this->auth->Auth_getNameMenu();
@@ -172,6 +177,31 @@ class Tindakan extends CI_Controller {
             
         }
     }
+    
+     public function deleteConsumable($id,$id_tindakan) {
+         
+         $res = $this->db->delete('tmst_tindakan_penggunaan_bahan',array('id'=>$id));
+               
+         if($res){
+             
+          redirect('tindakan/CTRL_Edit/'.$id_tindakan);
+
+         }else{
+             
+             print("
+                     <script language=\"javascript\">
+                     alert('gagal hapus');
+                      window.history.back();
+                     </script>
+                     ");
+         }
+        
+            
+        
+    }
+    
+    
+    
 
     public function CTRL_Select_OrderNumber() {
         if(!$this->auth->Auth_isPerm()) {

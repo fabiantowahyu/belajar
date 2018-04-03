@@ -45,6 +45,25 @@ class Md_tindakan extends CI_Model {
 		$res = $this->db->insert('tmst_tindakan', $data);
 		
 	}
+        
+        // Fungsi Tambah Data
+	public function MDL_InsertConsumable($id) {
+		$tmst_tindakan_penggunaan_bahan = $this->config->item('tmst_tindakan_penggunaan_bahan');
+
+		
+		
+		$data = array(
+			'pid' => $id,
+			'nama_produk' => $this->input->post('nama_produk'),
+			'jumlah' => $this->input->post('jumlah'),
+                        'moduser' => $this->session->userdata('userid'),
+			'recdate' => date("Y-m-d H:i:s"),
+			);
+                
+		$res = $this->db->insert('tmst_tindakan_penggunaan_bahan', $data);
+		
+	}
+        
 
 	// Fungsi Ubah Data
 	public function MDL_Update($id_tindakan){
@@ -81,6 +100,17 @@ class Md_tindakan extends CI_Model {
 
         return $this->db->get_where('tmst_tindakan', array('id_tindakan' => $id_tindakan))->row();
     }
+    
+    public function MDL_SelectConsumable($id_tindakan){
+        
+		$tmst_tindakan = $this->config->item('tmst_tindakan');
+
+        return $this->db->get_where('tmst_tindakan', array('pid' => $id_tindakan))->result();
+    }
+    
+    
+    
+    
 	public function MDL_getAutoID() {
 		$tbltypevar = $this->config->item('tmst_tindakan');
 
