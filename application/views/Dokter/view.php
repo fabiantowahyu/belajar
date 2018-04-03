@@ -1,60 +1,53 @@
-<?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed');?>
+<?php if (!defined('BASEPATH')) exit('No direct script access allowed'); ?>
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-lg-10">
+        <h2><?php echo $title; ?>
+	    <?php
+	    echo nbs(2);
+	    echo anchor('dokter/CTRL_New', '<i class="fa fa-plus"></i>', array('class' => 'btn btn-info btn-xs'));
+	    ?>
+	</h2>
+	<div class="col-lg-12">
+	    <?php
+	    if (!empty($breadcrum))
+		echo $breadcrum;
+	    ?>
 
-<div class="row-fluid">
-    <legend>
-        <h3>
-            <?php 
-            echo anchor('dokter', $title, array('class'=>'link-control')); 
-            echo nbs(2);
-            echo anchor('dokter/CTRL_New', '<i class="fa fa-plus"></i>', array('class'=>'btn btn-success btn-mini'));
-            ?>
-        </h3>
-    </legend>
+	</div>
 
-    <section id="widget-grid" class="">
-        <!-- row -->
-        <div class="row">
 
-            <!-- NEW WIDGET START -->
+    </div>
+</div>
 
-            <article class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 
-                <!-- Widget ID (each widget will need unique ID)-->
-                <div class="jarviswidget jarviswidget-color-blueLight" id="wid-id-0" data-widget-colorbutton="false"
-                     data-widget-editbutton="false" data-widget-deletebutton="false" data-widget-custombutton="true" 
-                     >
-                    <!-- widget options:
-usage: <div class="jarviswidget" id="wid-id-0" data-widget-editbutton="false">
-
-data-widget-colorbutton="false"
-data-widget-editbutton="false"
-data-widget-togglebutton="false"
-data-widget-deletebutton="false"
-data-widget-fullscreenbutton="false"
-data-widget-custombutton="false"
-data-widget-collapsed="true"
-data-widget-sortable="false"
-
--->
-                    <header>
-                        <span class="widget-icon"> <i class="fa fa-table"></i> </span>
-                        <h2>Row Tables </h2>
-                    </header>
-
-                    <!-- widget div-->
-                    <div>
-
-                        <!-- widget edit box -->
-                        <!-- <div class="jarviswidget-editbox">
-This area used as dropdown edit box
-
-</div> -->
-                        <!-- end widget edit box -->
-
-                        <!-- widget content -->
-                        <div class="widget-body no-padding">
-                            <table id="dt_basic" class="table table-striped table-bordered table-hover">
-                                <thead class="danger">
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div class="row">
+	<div class="col-lg-12">
+	    <div class="ibox float-e-margins">
+		<div class="ibox-title">
+		    <h5><i class="fa fa-table "></i> Table <small>Master Type</small></h5>
+		    <div class="ibox-tools">
+			<a class="collapse-link">
+			    <i class="fa fa-chevron-up"></i>
+			</a>
+			<a class="dropdown-toggle" data-toggle="dropdown" href="#">
+			    <i class="fa fa-wrench"></i>
+			</a>
+			<ul class="dropdown-menu dropdown-user">
+			    <li><a href="#">Config option 1</a>
+			    </li>
+			    <li><a href="#">Config option 2</a>
+			    </li>
+			</ul>
+			<a class="close-link">
+			    <i class="fa fa-times"></i>
+			</a>
+		    </div>
+		</div>
+		<div class="ibox-content">
+		    <div class="table-responsive">
+			<table id="dt_basic" class="table table-striped table-bordered table-hover dataTables-example">
+			  <thead class="danger">
                                     <tr>
                                         <th >ID Dokter</th>
                                         <th >Nama</th> 
@@ -83,17 +76,11 @@ This area used as dropdown edit box
                                     </tr>
                                     <?php } ?>
                                 </tbody>
-                            </table>
+			</table>
+		    </div>
+		</div>
+	    </div>
+	</div>
+    </div>
+</div>
 
-                        </div>
-                        <!-- end widget content -->
-
-                    </div>
-                    <!-- end widget div -->
-
-                </div>
-                <!-- end widget -->
-
-                </div>
-            </section>
-        </div>
