@@ -135,6 +135,7 @@ class Tindakan_lab extends CI_Controller {
                 $data['nama'] = $hasil->nama;
                 $data['option_golongan'] =  $this->CTRL_Option_Golongan();
                 $data['option_jenis'] =  $this->CTRL_Option_Jenis_Tindakan_lab();
+                $data['option_satuan'] = $this->CTRL_Option_Satuan();
                 $data['golongan'] = $hasil->golongan;
                 $data['jenis'] = $hasil->jenis;
                 $data['tarif'] = $hasil->tarif;
@@ -216,6 +217,17 @@ class Tindakan_lab extends CI_Controller {
         $this->load->Model('md_ref_json');
         $AryCompany = $this->md_ref_json->MDL_Select_MasterType('GOLONGAN_LAB');
         $option[''] = 'Pilih Golongan';
+        foreach($AryCompany as $row) {
+            $option[$row->id] = $row->name;
+        }
+
+        return $option;
+    }
+    
+    public function CTRL_Option_Satuan() {
+        $this->load->Model('md_ref_json');
+        $AryCompany = $this->md_ref_json->MDL_Select_MasterType('SATUAN');
+        $option[''] = 'Pilih Satuan';
         foreach($AryCompany as $row) {
             $option[$row->id] = $row->name;
         }

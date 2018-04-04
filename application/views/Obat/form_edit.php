@@ -70,7 +70,60 @@
                         ?>
                     </div>
                 </div>
+                        <div class="form-group">
+                    <label for="TableName" class="col-md-2 control-label">Sumber</label>
+                    <div class="col-md-4">
+                          <?php
+                        $input = array('name' => 'sumber','value'=>$sumber, 'maxlength' => 64, 'id' => 'TypeName', 'class' => 'form-control', 'data-bv-notempty' => 'true');
+                        echo form_input($input);
+                        ?>
+                    </div>
+                </div>
+                        <div class="form-group">
+                    <label for="TableName" class="col-md-2 control-label">Jumlah (Stock Awal)</label>
+                    <div class="col-md-4">
+                          <?php
+                        $input = array('name' => 'jumlah','value'=>$jumlah, 'maxlength' => 64, 'id' => 'TypeName', 'class' => 'form-control', 'data-bv-notempty' => 'true');
+                        echo form_input($input);
+                        ?>
+                    </div>
+                </div>
+                         <div class="form-group">
+                    <label for="TableName" class="col-md-2 control-label">min stock</label>
+                    <div class="col-md-4">
+                          <?php
+                        $input = array('name' => 'min_stock','value'=>$min_stock, 'maxlength' => 64, 'id' => 'TypeName', 'class' => 'form-control', 'data-bv-notempty' => 'true');
+                        echo form_input($input);
+                        ?>
+                    </div>
+                </div>
                         
+                        <div class="form-group">
+                                                <label for="" class="col-md-2 control-label" >Supplier<span class="text-danger">*</span></label>
+                                                <div class="col-md-4">
+                                                    <?php
+                                                    echo form_dropdown('supplier', $option_supplier, $supplier, 'id ="client_id" class="form-control" data-bv-notempty="true" style="width:100%"');
+                                                    ?>
+                                                </div>
+                                            </div>
+                        
+                        <div class="form-group">
+                                                <label for="" class="col-md-2 control-label" >Golongan<span class="text-danger">*</span></label>
+                                                <div class="col-md-4">
+                                                    <?php
+                                                    echo form_dropdown('golongan', $option_golongan_obat, $golongan, 'id ="client_id" class="form-control" data-bv-notempty="true" style="width:100%"');
+                                                    ?>
+                                                </div>
+                                            </div>
+                        <div class="form-group">
+                    <label for="TableName" class="col-md-2 control-label">Harga Beli</label>
+                    <div class="col-md-4">
+                          <?php
+                        $input = array('name' => 'harga_beli','value'=>$harga_beli, 'maxlength' => 64, 'id' => 'TypeName', 'class' => 'form-control', 'data-bv-notempty' => 'true');
+                        echo form_input($input);
+                        ?>
+                    </div>
+                </div> 
                         <div class="form-group">
                     <label for="TableName" class="col-md-2 control-label">Harga Jual</label>
                     <div class="col-md-4">
