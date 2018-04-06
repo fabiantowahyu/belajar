@@ -1,15 +1,15 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class Pasien_pendaftaran extends CI_Controller {
+class Kunjungan_baru extends CI_Controller {
     private $tblName;
     private $field;
 
     public function __construct() {
         parent::__construct();
-        $this->load->model('md_pasien');
-        //$this->tblName = $this->config->item('tmst_pasien');
-         $this->tblName = 'tmst_pasien';
-        $this->field = 'id_pasien';
+        $this->load->model('md_kunjungan_baru');
+        //$this->tblName = $this->config->item('tmst_kunjungan_baru');
+         $this->tblName = 'tmst_kunjungan_baru';
+        $this->field = 'id_kunjungan_baru';
     }
 
     public function index()	{
@@ -23,8 +23,8 @@ class Pasien_pendaftaran extends CI_Controller {
             if ($this->input->post('btn_submit')) {
                
                 
-                    $this->md_pasien->MDL_Insert();
-                    redirect('pasien');
+                    $this->md_kunjungan_baru->MDL_Insert();
+                    redirect('kunjungan_baru');
                 
             }else{
             /* Bread crum */
@@ -40,35 +40,44 @@ class Pasien_pendaftaran extends CI_Controller {
             $data['breadcrum'] = $breadcrum;
             /* end */
 
-            $data['results'] = $this->md_pasien->MDL_Select();
-            $data['option_asuransi'] = $this->CTRL_Option_Asuransi();
-            $data['option_jenis_kelamin'] = $this->CTRL_Option_Jenis_Kelamin();
-            $data['option_status_perkawinan'] = $this->CTRL_Option_Status_Perkawinan();
-            $data['option_pekerjaan'] = $this->CTRL_Option_Pekerjaan();
+            $data['results'] = $this->md_kunjungan_baru->MDL_Select();
+            $data['option_pasien'] = $this->CTRL_Option_Pasien();
+            $data['option_dokter'] = $this->CTRL_Option_Dokter();
+            $data['option_poli'] = $this->CTRL_Option_Poli();
 
             $nm_title = $this->auth->Auth_getNameMenu();
             $data['title'] = sprintf("%s",$nm_title);
-            $data['page'] = 'Pasien/form_new';
-            $data['plugin'] = 'Pasien/plugin';
+            $data['page'] = 'Kunjungan_baru/form_kunjungan';
+            $data['plugin'] = 'Kunjungan_baru/plugin';
             $this->load->view('template_admin', $data);
         }
         }
     }
-
- public function CTRL_Option_Asuransi() {
-        $AryAsuransi = $this->db->get_where('tmst_asuransi')->result();
+    
+public function CTRL_Option_Pasien() {
+        $AryAsuransi = $this->db->get_where('tmst_pasien')->result();
         $option[''] = 'Pilih Asuransi';
         foreach($AryAsuransi as $row) {
-            $option[$row->id_asuransi] = $row->nama;
+            $option[$row->id_pasien] = $row->nama;
         }
 
         return $option;
     }
     
-    public function CTRL_Option_Jenis_Kelamin() {
+    public function CTRL_Option_Dokter() {
+        $AryAsuransi = $this->db->get_where('tmst_dokter')->result();
+        $option[''] = 'Pilih Asuransi';
+        foreach($AryAsuransi as $row) {
+            $option[$row->id_dokter] = $row->nama;
+        }
+
+        return $option;
+    }
+    
+     public function CTRL_Option_Poli() {
         $this->load->Model('md_ref_json');
-        $AryCompany = $this->md_ref_json->MDL_Select_MasterType('JENIS_KELAMIN');
-        
+        $AryCompany = $this->md_ref_json->MDL_Select_MasterType('POLI_JENIS');
+        $option[''] = 'Pilih Poli';
         foreach($AryCompany as $row) {
             $option[$row->id] = $row->name;
         }
@@ -76,27 +85,7 @@ class Pasien_pendaftaran extends CI_Controller {
         return $option;
     }
     
+
     
-    public function CTRL_Option_Status_Perkawinan() {
-        $this->load->Model('md_ref_json');
-        $AryCompany = $this->md_ref_json->MDL_Select_MasterType('STATUS_PERKAWINAN');
-        
-        foreach($AryCompany as $row) {
-            $option[$row->id] = $row->name;
-        }
-
-        return $option;
-    }
-    
-    public function CTRL_Option_Pekerjaan() {
-        $this->load->Model('md_ref_json');
-        $AryCompany = $this->md_ref_json->MDL_Select_MasterType('JENIS_PEKERJAAN');
-        
-        foreach($AryCompany as $row) {
-            $option[$row->id] = $row->name;
-        }
-
-        return $option;
-    }
-
+ 
 }
