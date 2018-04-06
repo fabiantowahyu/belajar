@@ -95,8 +95,7 @@
                             <label for="TableName" class="col-md-2 control-label">Nama Asuransi</label>
                             <div class="col-md-4">
                                 <?php
-                                $input = array('name' => 'asuransi', 'maxlength' => 64, 'id' => 'TypeName', 'class' => 'form-control', 'data-bv-notempty' => 'true');
-                                echo form_input($input);
+                                echo form_dropdown('asuransi', $option_asuransi, '', 'id ="client_id" class="form-control" data-bv-notempty="true" style="width:100%"');
                                 ?>
                             </div>
                         </div>
@@ -125,8 +124,7 @@
                             <label for="TableName" class="col-md-2 control-label">Kota</label>
                             <div class="col-md-4">
                                 <?php
-                                $input = array('name' => 'kota', 'maxlength' => 64, 'id' => 'TypeName', 'class' => 'form-control', 'data-bv-notempty' => 'true');
-                                echo form_input($input);
+                                echo form_dropdown('kota', $option_kota, '', 'id ="client_id" class="form-control" data-bv-notempty="true" style="width:100%"');
                                 ?>
                             </div>
                         </div>
@@ -134,9 +132,8 @@
                         <div class="form-group">
                             <label for="TableName" class="col-md-2 control-label">Jenis Kelamin</label>
                             <div class="col-md-4">
-                                <?php
-                                $input = array('name' => 'jenis_kelamin', 'maxlength' => 64, 'id' => 'TypeName', 'class' => 'form-control', 'data-bv-notempty' => 'true');
-                                echo form_input($input);
+                               <?php
+                                echo form_dropdown('jenis_kelamin', $option_jenis_kelamin, '', 'id ="client_id" class="form-control" data-bv-notempty="true" style="width:100%"');
                                 ?>
                             </div>
                         </div>
@@ -144,8 +141,7 @@
                             <label for="TableName" class="col-md-2 control-label">Pekerjaan</label>
                             <div class="col-md-4">
                                 <?php
-                                $input = array('name' => 'pekerjaan', 'maxlength' => 64, 'id' => 'TypeName', 'class' => 'form-control', 'data-bv-notempty' => 'true');
-                                echo form_input($input);
+                                echo form_dropdown('pekerjaan', $option_jenis_pekerjaan, '', 'id ="client_id" class="form-control" data-bv-notempty="true" style="width:100%"');
                                 ?>
                             </div>
                         </div>
@@ -154,8 +150,7 @@
                             <label for="TableName" class="col-md-2 control-label">Status Perkawinan</label>
                             <div class="col-md-4">
                                 <?php
-                                $input = array('name' => 'status_perkawinan', 'maxlength' => 64, 'id' => 'TypeName', 'class' => 'form-control', 'data-bv-notempty' => 'true');
-                                echo form_input($input);
+                                echo form_dropdown('status_perkawinan', $option_status_perkawinan, '', 'id ="client_id" class="form-control" data-bv-notempty="true" style="width:100%"');
                                 ?>
                             </div>
                         </div>
