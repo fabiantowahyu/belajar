@@ -133,6 +133,17 @@ class Pasien extends CI_Controller {
                 $data['alamat'] = $hasil->alamat;
                 $data['foto'] = $hasil->foto;
                 $data['telp'] = $hasil->telp;
+                $data['no_rm'] = $hasil->no_rm;
+                $data['asuransi'] = $hasil->asuransi;
+                $data['no_asuransi'] = $hasil->no_asuransi;
+                $data['kota'] = $hasil->kota;
+                $data['jenis_kelamin'] = $hasil->jenis_kelamin;
+                $data['pekerjaan'] = $hasil->pekerjaan;
+                $data['status_perkawinan'] = $hasil->status_perkawinan;
+                $data['tempat_lahir'] = $hasil->tempat_lahir;
+                $data['tanggal_lahir'] = $hasil->tanggal_lahir;
+                $data['umur'] = $hasil->umur;
+                $data['email'] = $hasil->email;
                
 
                
