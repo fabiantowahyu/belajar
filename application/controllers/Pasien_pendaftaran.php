@@ -44,10 +44,12 @@ class Pasien_pendaftaran extends CI_Controller {
             $data['option_asuransi'] = $this->CTRL_Option_Asuransi();
             $data['option_jenis_kelamin'] = $this->CTRL_Option_Jenis_Kelamin();
             $data['option_status_perkawinan'] = $this->CTRL_Option_Status_Perkawinan();
-            $data['option_pekerjaan'] = $this->CTRL_Option_Pekerjaan();
+            $data['option_jenis_pekerjaan'] = $this->CTRL_Option_Pekerjaan();
+            $data['option_kota'] = array('PURWAKARTA'=>'PURWAKARTA');
 
             $nm_title = $this->auth->Auth_getNameMenu();
             $data['title'] = sprintf("%s",$nm_title);
+            $data['url'] = 'pasien_pendaftaran/CTRL_New';
             $data['page'] = 'Pasien/form_new';
             $data['plugin'] = 'Pasien/plugin';
             $this->load->view('template_admin', $data);

@@ -51,48 +51,169 @@
 			'data-bv-feedbackicons-validating' => 'glyphicon glyphicon-refresh'
 		    ));
 		    ?>
-		    <fieldset>
+		      <fieldset>
 
-                      <div class="form-group">
-                    <label for="TypeName" class="col-md-2 control-label">Nama Dokter</label>
-                    <div class="col-md-4">
-                        <?php
-                        $input = array('name' => 'nama', 'maxlength' => 64, 'id' => 'TypeName', 'class' => 'form-control', 'data-bv-notempty' => 'true');
-                        echo form_input($input);
-                        ?>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label for="TableName" class="col-md-2 control-label">Alamat</label>
-                    <div class="col-md-4">
-                          <?php
-                        $input = array('name' => 'alamat', 'maxlength' => 64, 'id' => 'TypeName', 'class' => 'form-control', 'data-bv-notempty' => 'true');
-                        echo form_input($input);
-                        ?>
-                    </div>
-                </div>
                         <div class="form-group">
-                    <label for="TableName" class="col-md-2 control-label">Telp</label>
-                    <div class="col-md-4">
-                          <?php
-                        $input = array('name' => 'telp', 'maxlength' => 64, 'id' => 'TypeName', 'class' => 'form-control', 'data-bv-notempty' => 'true');
-                        echo form_input($input);
-                        ?>
-                    </div>
-                </div>
-                        
+                            <label for="TypeName" class="col-md-2 control-label">Tanggal Daftar </label>
+                            <div class="col-md-4">
+                                <?php
+                                $input = array('name' => 'recdate', 'value' => date("Y-m-d H:i:s"), 'id' => 'TypeName', 'class' => 'form-control', 'data-bv-notempty' => 'true');
+                                echo form_input($input);
+                                ?>
+                            </div>
+                        </div>
                         <div class="form-group">
-                    <label for="TableName" class="col-md-2 control-label">Foto</label>
-                    <div class="col-md-4">
-                          <?php
-                        $input = array('name' => 'foto', 'maxlength' => 64, 'id' => 'TypeName', 'class' => 'form-control', 'data-bv-notempty' => 'true');
-                        echo form_input($input);
-                        ?>
-                    </div>
-                </div>
-                       
-                
-		    </fieldset>
+                            <label for="TableName" class="col-md-2 control-label">Nama Pasien</label>
+                            <div class="col-md-4">
+                                <?php
+                                $input = array('name' => 'nama', 'maxlength' => 64, 'id' => 'TypeName', 'class' => 'form-control', 'data-bv-notempty' => 'true');
+                                echo form_input($input);
+                                ?>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="TableName" class="col-md-2 control-label">No.Rm</label>
+                            <div class="col-md-4">
+                                <?php
+                                $input = array('name' => 'no_rm', 'maxlength' => 64, 'id' => 'TypeName', 'class' => 'form-control', 'data-bv-notempty' => 'true');
+                                echo form_input($input);
+                                ?>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="TableName" class="col-md-2 control-label">No Member</label>
+                            <div class="col-md-4">
+                                <?php
+                                $input = array('name' => 'id_pasien', 'maxlength' => 64, 'id' => 'TypeName', 'class' => 'form-control', 'data-bv-notempty' => 'true');
+                                echo form_input($input);
+                                ?>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="TableName" class="col-md-2 control-label">Nama Asuransi</label>
+                            <div class="col-md-4">
+                                <?php
+                                echo form_dropdown('asuransi', $option_asuransi, '', 'id ="client_id" class="form-control" data-bv-notempty="true" style="width:100%"');
+                                ?>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="TableName" class="col-md-2 control-label">No Asuransi</label>
+                            <div class="col-md-4">
+                                <?php
+                                $input = array('name' => 'no_asuransi', 'maxlength' => 64, 'id' => 'TypeName', 'class' => 'form-control', 'data-bv-notempty' => 'true');
+                                echo form_input($input);
+                                ?>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="TableName" class="col-md-2 control-label">Alamat Rumah</label>
+                            <div class="col-md-4">
+                                <?php
+                                $input = array('name' => 'alamat', 'maxlength' => 64, 'id' => 'TypeName', 'class' => 'form-control', 'data-bv-notempty' => 'true');
+                                echo form_input($input);
+                                ?>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="TableName" class="col-md-2 control-label">Kota</label>
+                            <div class="col-md-4">
+                                <?php
+                                echo form_dropdown('kota', $option_kota, '', 'id ="client_id" class="form-control" data-bv-notempty="true" style="width:100%"');
+                                ?>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="TableName" class="col-md-2 control-label">Jenis Kelamin</label>
+                            <div class="col-md-4">
+                               <?php
+                                echo form_dropdown('jenis_kelamin', $option_jenis_kelamin, '', 'id ="client_id" class="form-control" data-bv-notempty="true" style="width:100%"');
+                                ?>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="TableName" class="col-md-2 control-label">Pekerjaan</label>
+                            <div class="col-md-4">
+                                <?php
+                                echo form_dropdown('pekerjaan', $option_jenis_pekerjaan, '', 'id ="client_id" class="form-control" data-bv-notempty="true" style="width:100%"');
+                                ?>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="TableName" class="col-md-2 control-label">Status Perkawinan</label>
+                            <div class="col-md-4">
+                                <?php
+                                echo form_dropdown('status_perkawinan', $option_status_perkawinan, '', 'id ="client_id" class="form-control" data-bv-notempty="true" style="width:100%"');
+                                ?>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="TableName" class="col-md-2 control-label">Tempat Tanggal Lahir</label>
+                            <div class="col-md-4">
+                                <?php
+                                $input = array('name' => 'tempat_lahir', 'maxlength' => 64, 'id' => 'TypeName', 'class' => 'form-control', 'data-bv-notempty' => 'true');
+                                echo form_input($input);
+                                ?>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="TableName" class="col-md-2 control-label">Tanggal Lahir</label>
+                            <div class="col-md-4">
+                                <?php
+                                $input = array('name' => 'tanggal_lahir', 'maxlength' => 64, 'id' => 'TypeName', 'class' => 'form-control', 'data-bv-notempty' => 'true');
+                                echo form_input($input);
+                                ?>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="TableName" class="col-md-2 control-label">Umur</label>
+                            <div class="col-md-4">
+                                <?php
+                                $input = array('name' => 'umur', 'maxlength' => 64, 'id' => 'TypeName', 'class' => 'form-control', 'data-bv-notempty' => 'true');
+                                echo form_input($input);
+                                ?>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="TableName" class="col-md-2 control-label">No Telp</label>
+                            <div class="col-md-4">
+                                <?php
+                                $input = array('name' => 'telp', 'maxlength' => 64, 'id' => 'TypeName', 'class' => 'form-control', 'data-bv-notempty' => 'true');
+                                echo form_input($input);
+                                ?>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="TableName" class="col-md-2 control-label">Email</label>
+                            <div class="col-md-4">
+                                <?php
+                                $input = array('name' => 'email', 'maxlength' => 64, 'id' => 'TypeName', 'class' => 'form-control', 'data-bv-notempty' => 'true');
+                                echo form_input($input);
+                                ?>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="TableName" class="col-md-2 control-label">Foto</label>
+                            <div class="col-md-4">
+                                <?php
+                                $input = array('name' => 'foto', 'maxlength' => 64, 'id' => 'TypeName', 'class' => 'form-control', 'data-bv-notempty' => 'true');
+                                echo form_input($input);
+                                ?>
+                            </div>
+                        </div>
+                    </fieldset>
 		    <div class="hr-line-dashed"></div>
 
 		    <div class="form-group">

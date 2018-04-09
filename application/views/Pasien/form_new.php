@@ -57,7 +57,7 @@
                             <label for="TypeName" class="col-md-2 control-label">Tanggal Daftar </label>
                             <div class="col-md-4">
                                 <?php
-                                $input = array('name' => 'recdate', 'maxlength' => 64, 'id' => 'TypeName', 'class' => 'form-control', 'data-bv-notempty' => 'true');
+                                $input = array('name' => 'recdate', 'value' => date("Y-m-d H:i:s"), 'id' => 'TypeName', 'class' => 'form-control', 'data-bv-notempty' => 'true');
                                 echo form_input($input);
                                 ?>
                             </div>

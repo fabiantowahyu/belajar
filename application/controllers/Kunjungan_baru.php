@@ -47,6 +47,7 @@ class Kunjungan_baru extends CI_Controller {
 
             $nm_title = $this->auth->Auth_getNameMenu();
             $data['title'] = sprintf("%s",$nm_title);
+            $data['url'] = 'kunjungan_baru/CTRL_New';
             $data['page'] = 'Kunjungan_baru/form_kunjungan';
             $data['plugin'] = 'Kunjungan_baru/plugin';
             $this->load->view('template_admin', $data);
