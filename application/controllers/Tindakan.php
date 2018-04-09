@@ -218,10 +218,10 @@ class Tindakan extends CI_Controller {
 
     public function CTRL_Option_Poli() {
         $this->load->Model('md_ref_json');
-        $AryCompany = $this->md_ref_json->MDL_Select_MasterType('POLI_JENIS');
+        $AryPoli = $this->db->get_where('tmst_poli')->result();
         $option[''] = 'Pilih Poli';
-        foreach($AryCompany as $row) {
-            $option[$row->id] = $row->name;
+        foreach($AryPoli as $row) {
+            $option[$row->id_poli] = $row->nama;
         }
 
         return $option;
