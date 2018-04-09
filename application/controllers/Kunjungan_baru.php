@@ -12,7 +12,42 @@ class Kunjungan_baru extends CI_Controller {
         $this->field = 'id_kunjungan_baru';
     }
 
+    
     public function index()	{
+       
+        if(!$this->auth->Auth_isPerm()) {
+            $this->load->view('error_akses');
+        } elseif(!$this->auth->Auth_isPrivButton('list')) {
+            $data['action'] = 'list';
+            $data['page'] = 'error_sysmenu';
+            $this->load->view('template_admin', $data);
+        } else {
+            /* Bread crum */
+            $this->load->model('md_ref_json');
+            $params = $this->router->fetch_class();
+            $hasil = $this->md_ref_json->MDL_SelectMenu($params);
+            $parentt = $hasil->parentt;
+            $nm_menu = $hasil->custom_title;
+            $path_icon = $hasil->path_icon;
+            $this->breadcrumbs->add($parentt, '#', $path_icon);
+            $this->breadcrumbs->add($nm_menu, current_url());
+            $breadcrum = $this->breadcrumbs->output();
+            $data['breadcrum'] = $breadcrum;
+            /* end */
+
+            $data['results'] = $this->md_kunjungan_baru->MDL_Select();
+
+
+            $nm_title = $this->auth->Auth_getNameMenu();
+            $data['title'] = sprintf("%s",$nm_title);
+            $data['page'] = 'Kunjungan_baru/view';
+            $data['plugin'] = 'Kunjungan_baru/plugin';
+            $this->load->view('template_admin', $data);
+        }
+    }
+    
+    
+    public function CTRL_New()	{
         if(!$this->auth->Auth_isPerm()) {
             $this->load->view('error_akses');
         } elseif(!$this->auth->Auth_isPrivButton('list')) {

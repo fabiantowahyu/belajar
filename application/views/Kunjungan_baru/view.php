@@ -4,7 +4,7 @@
         <h2><?php echo $title; ?>
 	    <?php
 	    echo nbs(2);
-	    echo anchor('pasien/CTRL_New', '<i class="fa fa-plus"></i>', array('class' => 'btn btn-info btn-xs'));
+	    echo anchor('kunjungan_baru/CTRL_New', '<i class="fa fa-plus"></i>', array('class' => 'btn btn-info btn-xs'));
 	    ?>
 	</h2>
 	<div class="col-lg-12">
@@ -49,11 +49,11 @@
 			<table id="dt_basic" class="table table-striped table-bordered table-hover dataTables-example">
 			    <thead class="danger">
                                     <tr>
-                                        <th >ID Dokter</th>
-                                        <th >Nama</th> 
-                                        <th >Alamat</th> 
-                                        <th >Telp</th> 
-                                        <th>Foto</th> 
+                                        <th >Jam Datang</th>
+                                        <th >Antrian</th>
+                                        <th >Poli</th> 
+                                        <th >Pasien</th> 
+                                        <th >Dokter</th> 
                                         <th width="10" class="center">Action</th> 
                                     </tr>
                                 </thead>
@@ -61,14 +61,14 @@
                                 <tbody>
                                     <?php foreach ($results as $row) { ?>
                                     <tr>
-                                        <td><?php echo $row->id_pasien; ?></td>
-                                        <td><?php echo $row->nama; ?></td>
-                                        <td><?php echo $row->alamat; ?></td>
-                                        <td><?php echo $row->telp; ?></td>
-                                        <td><?php echo $row->foto; ?></td>
+                                        <td><?php echo $row->recdate; ?></td>
+                                        <th >Antrian</th>
+                                        <td><?php echo $row->poli; ?></td>
+                                        <td><?php echo $row->pasien; ?></td>
+                                        <td><?php echo $row->dokter; ?></td>
                                         <td class="center">
                                             <?php 
-                                                                      echo anchor('pasien/CTRL_Edit/' . $row->id_pasien, '<button class="btn btn-xs btn-primary"><i class="fa fa-pencil bigger-120"></i></button>');
+                                                                      echo anchor('kunjungan_baru/CTRL_Edit/' . $row->no_urut, '<button class="btn btn-xs btn-primary"><i class="fa fa-pencil bigger-120"></i></button>');
                                             ?>
                                         </td>
                                     </tr>
