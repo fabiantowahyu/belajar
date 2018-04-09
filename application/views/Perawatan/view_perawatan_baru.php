@@ -54,7 +54,7 @@
                                         <th >Poli</th> 
                                         <th >Pasien</th> 
                                         <th >Dokter</th> 
-                                        <th class="center">Action</th> 
+                                        <th  class="center">Action</th> 
                                     </tr>
                                 </thead>
 
@@ -69,10 +69,11 @@
                                         <td class="center">
                                             <?php 
                                                                       echo anchor('kunjungan_baru/CTRL_Edit/' . $row->no_urut, '<button class="btn btn-xs btn-primary"><i class="fa fa-pencil bigger-120"></i></button>');
-                                             echo '&nbsp';
-                                                                      echo anchor('kunjungan_baru/CTRL_Masuk_Antrian/' . $row->no_urut, '<button class="btn btn-xs btn-primary"><i class="fa fa-plus bigger-120"></i></button>');
-                                                                      
-                                                                      ?>                          
+                                                                      echo '&nbsp';
+                                                                      echo anchor('kunjungan_baru/CTRL_Edit/' . $row->no_urut, '<button class="btn btn-xs btn-primary"><i class="fa fa-list bigger-120"></i></button>');
+echo '&nbsp';
+                                                                      echo anchor('kunjungan_baru/CTRL_Edit/' . $row->no_urut, '<button class="btn btn-xs btn-primary"><i class="fa fa-remove bigger-120"></i></button>');
+                                                                      ?>
                                         </td>
                                     </tr>
                                     <?php } ?>

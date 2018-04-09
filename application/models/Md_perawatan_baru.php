@@ -1,6 +1,6 @@
 <?php
 
-class Md_kunjungan_baru extends CI_Model {
+class Md_perawatan_baru extends CI_Model {
 
     // Fungsi Ambil Data
     public function MDL_Select() {
@@ -9,7 +9,7 @@ class Md_kunjungan_baru extends CI_Model {
         $hasil = array();
 
         $sSQL = "
-			SELECT * from ttrs_kunjungan where status_kunjungan=0
+			SELECT * from ttrs_kunjungan where status_kunjungan=1
 		";
 
         $ambil = $this->db->query($sSQL);
@@ -97,17 +97,6 @@ class Md_kunjungan_baru extends CI_Model {
         return $hasil;
     }
 
-    
-     public function MDL_Masuk_Antrian($no_urut){
-         
-         $data=array(
-             'status_kunjungan'=>1,
-             'waktu_masuk'=>date("Y-m-d H:i:s")
-             );
-    $this->db->where('no_urut',$no_urut);
-   $res =  $this->db->update('ttrs_kunjungan',$data);
-         return $res;
-     }
 }
 
 ?>
