@@ -47,7 +47,7 @@
                         <label for="TypeName" class="col-md-2 control-label">Nama Tindakan</label>
                         <div class="col-md-4">
                             <?php
-                            $input = array('name' => 'nama', 'value' => $nama, 'maxlength' => 64, 'id' => 'TypeName', 'class' => 'form-control', 'data-bv-notempty' => 'true');
+                            $input = array('name' => 'nama', 'value' => $nama, 'placeholder' => 'Nama Tindakan', 'id' => 'TypeName', 'class' => 'form-control', 'data-bv-notempty' => 'true');
                             echo form_input($input);
                             ?>
                         </div>
@@ -75,7 +75,7 @@
                         <label for="TableName" class="col-md-2 control-label">Tarif</label>
                         <div class="col-md-4">
                             <?php
-                            $input = array('name' => 'tarif', 'value' => $tarif, 'maxlength' => 64, 'id' => 'TypeName', 'class' => 'form-control', 'data-bv-notempty' => 'true');
+                            $input = array('name' => 'tarif', 'value' => $tarif, 'placeholder' => 'Tarif', 'id' => 'TypeName', 'class' => 'form-control', 'data-bv-notempty' => 'true');
                             echo form_input($input);
                             ?>
                         </div>
@@ -85,7 +85,7 @@
                         <label for="TableName" class="col-md-2 control-label">Fee</label>
                         <div class="col-md-4">
                             <?php
-                            $input = array('name' => 'fee', 'value' => $fee, 'maxlength' => 64, 'id' => 'TypeName', 'class' => 'form-control', 'data-bv-notempty' => 'true');
+                            $input = array('name' => 'fee', 'value' => $fee, 'placeholder' => 'Fee', 'id' => 'TypeName', 'class' => 'form-control', 'data-bv-notempty' => 'true');
                             echo form_input($input);
                             ?>
                         </div>

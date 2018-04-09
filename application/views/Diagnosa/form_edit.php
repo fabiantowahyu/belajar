@@ -47,7 +47,7 @@
                     <label for="TypeName" class="col-md-2 control-label">Nama Diagnosa</label>
                     <div class="col-md-4">
                         <?php
-                        $input = array('name' => 'nama','value'=>$nama, 'maxlength' => 64, 'id' => 'TypeName', 'class' => 'form-control', 'data-bv-notempty' => 'true');
+                        $input = array('name' => 'nama','value'=>$nama, 'placeholder' => 'Nama Diagnosa', 'id' => 'TypeName', 'class' => 'form-control', 'data-bv-notempty' => 'true');
                         echo form_input($input);
                         ?>
                     </div>
@@ -64,7 +64,7 @@
                     <label for="TableName" class="col-md-2 control-label">Poli</label>
                     <div class="col-md-4">
                           <?php
-                        $input = array('name' => 'poli','value'=>$poli, 'maxlength' => 64, 'id' => 'TypeName', 'class' => 'form-control', 'data-bv-notempty' => 'true');
+                        $input = array('name' => 'poli','value'=>$poli, 'placeholder' => 'placeholder', 'id' => 'TypeName', 'class' => 'form-control', 'data-bv-notempty' => 'true');
                         echo form_input($input);
                         ?>
                     </div>

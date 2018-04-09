@@ -66,7 +66,7 @@
                             <label for="TypeName" class="col-md-2 control-label">No Urut </label>
                             <div class="col-md-4">
                                 <?php
-                                $input = array('name' => 'no_urut', 'maxlength' => 64, 'id' => 'TypeName', 'class' => 'form-control', 'data-bv-notempty' => 'true');
+                                $input = array('name' => 'no_urut', 'placeholder' => 'No Urut ', 'id' => 'TypeName', 'class' => 'form-control', 'data-bv-notempty' => 'true');
                                 echo form_input($input);
                                 ?>
                             </div>

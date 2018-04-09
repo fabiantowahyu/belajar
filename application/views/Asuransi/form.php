@@ -53,10 +53,10 @@
 		    ?>
 		    <fieldset>
   <div class="form-group">
-                    <label for="TypeName" class="col-md-2 control-label">Nama Dokter</label>
+                    <label for="TypeName" class="col-md-2 control-label">Nama Asuransi</label>
                     <div class="col-md-4">
                         <?php
-                        $input = array('name' => 'nama', 'maxlength' => 64, 'id' => 'TypeName', 'class' => 'form-control', 'data-bv-notempty' => 'true');
+                        $input = array('name' => 'nama', 'placeholder' => 'Nama Asuransi', 'id' => 'TypeName', 'class' => 'form-control', 'data-bv-notempty' => 'true');
                         echo form_input($input);
                         ?>
                     </div>
@@ -65,7 +65,7 @@
                     <label for="TableName" class="col-md-2 control-label">Alamat</label>
                     <div class="col-md-4">
                           <?php
-                        $input = array('name' => 'alamat', 'maxlength' => 64, 'id' => 'TypeName', 'class' => 'form-control', 'data-bv-notempty' => 'true');
+                        $input = array('name' => 'alamat', 'placeholder' => 'Alamat', 'id' => 'TypeName', 'class' => 'form-control', 'data-bv-notempty' => 'true');
                         echo form_input($input);
                         ?>
                     </div>
@@ -74,26 +74,17 @@
                     <label for="TableName" class="col-md-2 control-label">Telp</label>
                     <div class="col-md-4">
                           <?php
-                        $input = array('name' => 'telp', 'maxlength' => 64, 'id' => 'TypeName', 'class' => 'form-control', 'data-bv-notempty' => 'true');
+                        $input = array('name' => 'telp', 'placeholder' => 'Telp', 'id' => 'TypeName', 'class' => 'form-control', 'data-bv-notempty' => 'true');
                         echo form_input($input);
                         ?>
                     </div>
                 </div>
-                        
-                        <div class="form-group">
-                    <label for="TableName" class="col-md-2 control-label">Poli</label>
-                    <div class="col-md-4">
-                          <?php
-                        $input = array('name' => 'kontak', 'maxlength' => 64, 'id' => 'TypeName', 'class' => 'form-control', 'data-bv-notempty' => 'true');
-                        echo form_input($input);
-                        ?>
-                    </div>
-                </div>
+                       
                         <div class="form-group">
                     <label for="TableName" class="col-md-2 control-label">Margin Tindakan</label>
                     <div class="col-md-4">
                           <?php
-                        $input = array('name' => 'margin_tindakan', 'maxlength' => 64, 'id' => 'TypeName', 'class' => 'form-control', 'data-bv-notempty' => 'true');
+                        $input = array('name' => 'margin_tindakan', 'placeholder' => 'Margin Tindakan', 'id' => 'TypeName', 'class' => 'form-control', 'data-bv-notempty' => 'true');
                         echo form_input($input);
                         ?>
                     </div>
@@ -103,7 +94,7 @@
                     <label for="TableName" class="col-md-2 control-label">Margin Lab / Rontgen</label>
                     <div class="col-md-4">
                           <?php
-                        $input = array('name' => 'margin_lab_rontgen', 'maxlength' => 64, 'id' => 'TypeName', 'class' => 'form-control', 'data-bv-notempty' => 'true');
+                        $input = array('name' => 'margin_lab_rontgen', 'placeholder' => 'Margin Lab / Rontgen', 'id' => 'TypeName', 'class' => 'form-control', 'data-bv-notempty' => 'true');
                         echo form_input($input);
                         ?>
                     </div>
@@ -113,7 +104,7 @@
                     <label for="TableName" class="col-md-2 control-label">Margin Obat</label>
                     <div class="col-md-4">
                           <?php
-                        $input = array('name' => 'margin_obat', 'maxlength' => 64, 'id' => 'TypeName', 'class' => 'form-control', 'data-bv-notempty' => 'true');
+                        $input = array('name' => 'margin_obat', 'placeholder' => 'Margin Obat', 'id' => 'TypeName', 'class' => 'form-control', 'data-bv-notempty' => 'true');
                         echo form_input($input);
                         ?>
                     </div>

@@ -57,7 +57,7 @@
                     <label for="TypeName" class="col-md-2 control-label">Nama</label>
                     <div class="col-md-4">
                         <?php
-                        $input = array('name' => 'nama', 'maxlength' => 64, 'id' => 'TypeName', 'class' => 'form-control', 'data-bv-notempty' => 'true');
+                        $input = array('name' => 'nama', 'placeholder' => 'Nama', 'id' => 'TypeName', 'class' => 'form-control', 'data-bv-notempty' => 'true');
                         echo form_input($input);
                         ?>
                     </div>
@@ -74,7 +74,7 @@
                     <label for="TableName" class="col-md-2 control-label">Alamat</label>
                     <div class="col-md-4">
                           <?php
-                        $input = array('name' => 'alamat', 'maxlength' => 64, 'id' => 'TypeName', 'class' => 'form-control', 'data-bv-notempty' => 'true');
+                        $input = array('name' => 'alamat', 'placeholder' => 'Alamat', 'id' => 'TypeName', 'class' => 'form-control', 'data-bv-notempty' => 'true');
                         echo form_input($input);
                         ?>
                     </div>
@@ -83,26 +83,25 @@
                     <label for="TableName" class="col-md-2 control-label">Telp</label>
                     <div class="col-md-4">
                           <?php
-                        $input = array('name' => 'telp', 'maxlength' => 64, 'id' => 'TypeName', 'class' => 'form-control', 'data-bv-notempty' => 'true');
+                        $input = array('name' => 'telp', 'placeholder' => 'Telp', 'id' => 'TypeName', 'class' => 'form-control', 'data-bv-notempty' => 'true');
                         echo form_input($input);
                         ?>
                     </div>
                 </div>
                         
                         <div class="form-group">
-                    <label for="TableName" class="col-md-2 control-label">Poli</label>
-                    <div class="col-md-4">
-                          <?php
-                        $input = array('name' => 'poli', 'maxlength' => 64, 'id' => 'TypeName', 'class' => 'form-control', 'data-bv-notempty' => 'true');
-                        echo form_input($input);
-                        ?>
-                    </div>
-                </div>
+                                                <label for="" class="col-md-2 control-label" >Poli<span class="text-danger">*</span></label>
+                                                <div class="col-md-4">
+                                                    <?php
+                                                    echo form_dropdown('poli', $option_poli, '', 'id ="client_id" class="form-control" data-bv-notempty="true" style="width:100%"');
+                                                    ?>
+                                                </div>
+                                            </div>
                         <div class="form-group">
                     <label for="TableName" class="col-md-2 control-label">Jadwal</label>
                     <div class="col-md-4">
                           <?php
-                        $input = array('name' => 'jadwal', 'maxlength' => 64, 'id' => 'TypeName', 'class' => 'form-control', 'data-bv-notempty' => 'true');
+                        $input = array('name' => 'jadwal', 'placeholder' => 'Jadwal', 'id' => 'TypeName', 'class' => 'form-control', 'data-bv-notempty' => 'true');
                         echo form_input($input);
                         ?>
                     </div>
