@@ -4,7 +4,7 @@
         <h2><?php echo $title; ?>
 	    <?php
 	    echo nbs(2);
-	    echo anchor('diagnosa/CTRL_New', '<i class="fa fa-plus"></i>', array('class' => 'btn btn-info btn-xs'));
+	    echo anchor('poli/CTRL_New', '<i class="fa fa-plus"></i>', array('class' => 'btn btn-info btn-xs'));
 	    ?>
 	</h2>
 	<div class="col-lg-12">
@@ -49,9 +49,8 @@
 			<table id="dt_basic" class="table table-striped table-bordered table-hover dataTables-example">
 			   <thead class="danger">
                                     <tr>
-                                        <th width="100">Kode Tindakan</th>
-                                        <th width="150">Nama</th> 
-                                        <th width="150">Poli</th> 
+                                        <th width="100">Kode Poli</th>
+                                        <th width="150">Nama Poli</th> 
                                         <th width="10" class="center">Action</th> 
                                     </tr>
                                 </thead>
@@ -59,12 +58,12 @@
                                 <tbody>
                                     <?php foreach ($results as $row) { ?>
                                     <tr>
-                                        <td><?php echo $row->id_diagnosa; ?></td>
+                                        <td><?php echo $row->id_poli; ?></td>
                                         <td><?php echo $row->nama; ?></td>
                                         <td><?php echo $row->poli; ?></td>
                                         <td class="center">
                                             <?php 
-                                                                      echo anchor('diagnosa/CTRL_Edit/' . $row->id_diagnosa, '<button class="btn btn-xs btn-primary"><i class="fa fa-pencil bigger-120"></i></button>');
+                                                                      echo anchor('poli/CTRL_Edit/' . $row->id_poli, '<button class="btn btn-xs btn-primary"><i class="fa fa-pencil bigger-120"></i></button>');
                                             ?>
                                         </td>
                                     </tr>
