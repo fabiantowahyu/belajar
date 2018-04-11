@@ -1,6 +1,6 @@
 <?php
 
-class Md_kunjungan_baru extends CI_Model {
+class Md_pemeriksaan_baru extends CI_Model {
 
     // Fungsi Ambil Data
     public function MDL_Select() {
@@ -9,7 +9,7 @@ class Md_kunjungan_baru extends CI_Model {
         $hasil = array();
 
         $sSQL = "
-			SELECT * from ttrs_kunjungan where status_kunjungan=0
+			SELECT * from ttrs_kunjungan where status_kunjungan=1
 		";
 
         $ambil = $this->db->query($sSQL);
@@ -20,7 +20,7 @@ class Md_kunjungan_baru extends CI_Model {
         }
         return $hasil;
     }
-    
+
     // Fungsi Tambah Data
     public function MDL_Insert() {
         $ttrs_kunjungan = $this->config->item('ttrs_kunjungan');
@@ -66,10 +66,10 @@ class Md_kunjungan_baru extends CI_Model {
         $this->db->delete('ttrs_kunjungan', array('id_pasien' => $id_pasien));
     }
 
-    public function MDL_SelectID($id_pasien) {
+    public function MDL_SelectID($no_urut) {
         $ttrs_kunjungan = $this->config->item('ttrs_kunjungan');
 
-        return $this->db->get_where('ttrs_kunjungan', array('id_pasien' => $id_pasien))->row();
+        return $this->db->get_where('ttrs_kunjungan', array('no_urut' => $no_urut))->row();
     }
 
     public function MDL_getAutoID() {
@@ -97,17 +97,6 @@ class Md_kunjungan_baru extends CI_Model {
         return $hasil;
     }
 
-    
-     public function MDL_Masuk_Antrian($no_urut){
-         
-         $data=array(
-             'status_kunjungan'=>1,
-             'waktu_masuk'=>date("Y-m-d H:i:s")
-             );
-    $this->db->where('no_urut',$no_urut);
-   $res =  $this->db->update('ttrs_kunjungan',$data);
-         return $res;
-     }
 }
 
 ?>

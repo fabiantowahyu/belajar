@@ -4,7 +4,7 @@
         <h2><?php echo $title; ?>
 	    <?php
 	    echo nbs(2);
-	    echo anchor('perawatan_baru/CTRL_New', '<i class="fa fa-plus"></i>', array('class' => 'btn btn-info btn-xs'));
+	    echo anchor('pemeriksaan_baru/CTRL_New', '<i class="fa fa-plus"></i>', array('class' => 'btn btn-info btn-xs'));
 	    ?>
 	</h2>
 	<div class="col-lg-12">
@@ -68,11 +68,11 @@
                                         <td><?php echo $row->dokter; ?></td>
                                         <td class="center">
                                             <?php 
-                                                                      echo anchor('perawatan_baru/CTRL_Edit/' . $row->no_urut, '<button class="btn btn-xs btn-primary"><i class="fa fa-pencil bigger-120"></i></button>');
+                                                                      echo anchor('pemeriksaan_baru/CTRL_New/' . $row->no_urut, '<button class="btn btn-xs btn-primary"><i class="fa fa-pencil bigger-120"></i></button>');
                                                                       echo '&nbsp';
-                                                                      echo anchor('perawatan_baru/CTRL_Edit/' . $row->no_urut, '<button class="btn btn-xs btn-success"><i class="fa fa-list bigger-120"></i></button>');
+                                                                      echo anchor('pemeriksaan_baru/CTRL_Edit/' . $row->no_urut, '<button class="btn btn-xs btn-success"><i class="fa fa-list bigger-120"></i></button>');
 echo '&nbsp';
-                                                                      echo anchor('perawatan_baru/CTRL_Edit/' . $row->no_urut, '<button class="btn btn-xs btn-danger"><i class="fa fa-remove bigger-120"></i></button>');
+                                                                      echo anchor('pemeriksaan_baru/CTRL_Edit/' . $row->no_urut, '<button class="btn btn-xs btn-danger"><i class="fa fa-remove bigger-120"></i></button>');
                                                                       ?>
                                         </td>
                                     </tr>
