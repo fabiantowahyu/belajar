@@ -14,8 +14,64 @@
 
 <!--inline scripts related to this page-->
 
-<script>
+<script src="<?php echo base_url(); ?>themes/js/numeral.min.js"></script>
 
+<script>
+     function isNumberKey(evt)
+    {
+        var charCode = (evt.which) ? evt.which : event.keyCode
+        if (charCode === 46) {
+            return true;
+        } else if (charCode > 31 && (charCode < 48 || charCode > 57)) {
+            return false;
+        } else {
+            return true;
+        }
+    }
+
+    function setNumber_discount(i) {
+        var unit_price = $('#unit_price_' + i).val();
+        var discount = $('#discount_' + i).val();
+
+        unit_price = numeral(unit_price).format('0,0.00');
+        $('#unit_price_' + i).val(unit_price);
+
+        var unit_price = $('#unit_price_' + i).val();
+        unit_price = unit_price.replace(/,/g, "");
+
+        var total_discount = unit_price  * (discount / 100);
+        var total = (unit_price ) - total_discount;
+
+
+       
+        total = numeral(total).format('0,0.00');
+
+        $('#total_' + i).val(total);
+        $('#total_temp_' + i).val(total);
+        calculate();
+    }
+
+function setNumber(i) {
+        var unit_price = $('#unit_price_' + i).val();
+        var discount = $('#discount_' + i).val();
+
+        unit_price = numeral(unit_price).format('0,0.00');
+        $('#unit_price_' + i).val(unit_price);
+
+        var unit_price = $('#unit_price_' + i).val();
+        unit_price = unit_price.replace(/,/g, "");
+
+        var total_discount = unit_price * (discount / 100);
+        var total = unit_price  - total_discount;
+
+       
+
+        total = numeral(total).format('0,0.00');
+
+        $('#total_' + i).val(total);
+        $('#total_temp_' + i).val(total);
+        calculate();
+    }
 
     $(document).ready(function () {
 //	$('#dt_basic').DataTable({
@@ -42,6 +98,8 @@
 //
 //	});
 
+  
+
 		var last = $('#last_num').val();
                 
              $('#btnAddRow').click(function () {
@@ -62,7 +120,7 @@
 
             $("#itemRow").append('<tr id="row' + i + '">' +
                     /*'<td>'+no+'</td>' +*/
-                    '<td align="center" width="20%"><select name="barang[' + i + '][item]" class="form-control optionItem' + no + '" onChange="cekUom(this,' + i + ')"></select></td>' +
+                    '<td align="center" width="20%"><select name="barang[' + i + '][item]" class="form-control optionItem' + no + '" "></select></td>' +
                     
                     '<td align="center" width="20%"><input type="text" class=" form-control input-small align-right" name="barang[' + i + '][unit_price]" id="unit_price_' + i + '"onchange="setNumber(' + i + ')" placeholder="Unit prices"/></td>' +
                     '<td align="center" width="10%"><input type="text" class=" form-control input-mini" name="barang[' + i + '][discount]" id="discount_' + i + '"onchange="setNumber_discount(' + i + ')"  placeholder="Discount" onkeypress="return isNumberKey(event)"/></td>' +
@@ -124,7 +182,7 @@
             console.log(j);
             $("#itemRow").append('<tr id="row' + j + '">' +
                     /*'<td>'+num+'</td>' +*/
-                    '<td align="center"><select name="barang[' + j + '][item]" class="optionItem' + num + '" onChange="cekUom(this,' + j + ')"></select></td>' +
+                    '<td align="center"><select name="barang[' + j + '][item]" class="optionItem' + num + '" "></select></td>' +
                     '<td align="center"><input type="text" class="input-mini" name="barang[' + j + '][qty]" id="qty_' + j + '" onkeyup="sumTotal(' + j + ')" placeholder="Quantity" onkeypress="return isNumberKey(event)"/></td>' +
                     '<td  align="center" width="10%"><select name="barang[' + j + '][uom]" class="optionUOM' + num + '" id="uom' + j + '" style="width:100px" ></select></td>' +
                     '<td align="center"><input type="text" class="input-small align-right" name="barang[' + j + '][unit_price]" id="unit_price_' + j + '" onchange="setNumber(' + j + ')" placeholder="Unit prices"/></td>' +
@@ -184,5 +242,40 @@
     }   
                 
     });
+function calculate() {
+//
+//        var subtotal = 0;
+//        var subtotaltax = 0;
+//        var grandtotal = 0;
+//        var total_unitprice = 0;
+//        var total_discount = 0;
+//        var persen_discount = 0;
+//        var arrtax = document.querySelectorAll('input[id^="tax_amount_temp_"]');
+//        var arrqty = document.querySelectorAll('input[id^="qty_"]');
+//        var arr = document.querySelectorAll('input[id^="total_temp_"]');
+//        var arr_unitprice = document.querySelectorAll('input[id^="unit_price_"]');
+//        for (var a = 0; a < (arr.length); a++) {
+//            subtotal += parseFloat(arr[a].value.replace(/,/g, ""));
+//            subtotaltax += parseFloat(arrtax[a].value.replace(/,/g, ""));
+//            total_unitprice += parseFloat(arr_unitprice[a].value.replace(/,/g, "")) * parseFloat(arrqty[a].value.replace(/,/g, ""));
+//            grandtotal = subtotal + subtotaltax;
+//
+//            $('#subtotal').val(numeral(subtotal).format('0,0.00'));
+//            $('#subtotaltax').val(numeral(subtotaltax).format('0,0.00'));
+//            $('#grandtotal').val(numeral(grandtotal).format('0,0.00'));
+//        }
+//
+//        total_discount = total_unitprice - subtotal;
+//
+//        persen_discount = (total_discount / total_unitprice) * 100;
+//        if (isNaN(persen_discount)) {
+//            persen_discount = 0;
+//        }
+//
+//        $('#total_discount').text(numeral(total_discount).format('0,0.00'));
+//        $('#persen_discount').text(persen_discount.toFixed(2));
+//        //alert(persen_discount);
+
+    }
 
 </script>

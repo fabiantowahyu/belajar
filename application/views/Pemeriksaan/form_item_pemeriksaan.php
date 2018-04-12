@@ -57,7 +57,7 @@
                             <label for="TypeName" class="col-md-2 control-label">Tanggal Kunjungan </label>
                             <div class="col-md-4">
                                 <?php
-                                $input = array('name' => 'recdate', 'value' => date("Y-m-d H:i:s"), 'id' => 'TypeName', 'class' => 'form-control', 'data-bv-notempty' => 'true');
+                                $input = array('name' => 'tgl_kunjungan', 'value' => $tgl_kunjungan, 'id' => 'TypeName', 'class' => 'form-control', 'readonly' => 'true');
                                 echo form_input($input);
                                 ?>
                             </div>
@@ -66,7 +66,7 @@
                             <label for="TypeName" class="col-md-2 control-label">No Urut </label>
                             <div class="col-md-4">
                                 <?php
-                                $input = array('name' => 'no_urut', 'placeholder' => 'No Urut', 'id' => 'TypeName', 'class' => 'form-control', 'data-bv-notempty' => 'true');
+                                $input = array('name' => 'no_urut', 'placeholder' => 'No Urut', 'value' => $no_urut, 'id' => 'TypeName', 'class' => 'form-control', 'readonly' => 'true');
                                 echo form_input($input);
                                 ?>
                             </div>
@@ -99,6 +99,7 @@
                     </fieldset>
                     
                     <div class="span11">
+                        <input type="hidden" id="last_num">
 				<h4 class="header blue bolder smaller">Items</h4>
 				<span class="btn btn-primary btn-xs" id="btnAddRow"> <i class="icon-plus"></i> Add items</span>
 				<br><br>

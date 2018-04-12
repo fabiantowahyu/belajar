@@ -57,7 +57,7 @@ class Pemeriksaan_baru extends CI_Controller {
         } else {
             if ($this->input->post('btn_submit')) {
                
-                
+                //die();
                     $this->md_pemeriksaan_baru->MDL_Insert($no_urut);
                     redirect('pemeriksaan_baru');
                 
@@ -78,6 +78,7 @@ class Pemeriksaan_baru extends CI_Controller {
             $hasil = $this->md_pemeriksaan_baru->MDL_SelectID($no_urut);
             
             $data['no_urut'] = $hasil->no_urut;
+            $data['tgl_kunjungan'] = $hasil->recdate;
             $data['pasien'] = $hasil->pasien;
             $data['dokter'] = $hasil->dokter;
             $data['asuransi'] = '';
@@ -90,7 +91,7 @@ class Pemeriksaan_baru extends CI_Controller {
 
             $nm_title = $this->auth->Auth_getNameMenu();
             $data['title'] = sprintf("%s",$nm_title);
-            $data['url'] = 'pemeriksaan_baru/CTRL_New';
+            $data['url'] = 'pemeriksaan_baru/CTRL_New/'.$no_urut;
             $data['page'] = 'Pemeriksaan/form_item_pemeriksaan';
             $data['plugin'] = 'Pemeriksaan/plugin';
             $this->load->view('template_admin', $data);
@@ -110,7 +111,7 @@ public function CTRL_Option_Pasien() {
     
     public function CTRL_Option_Dokter() {
         $AryAsuransi = $this->db->get_where('tmst_dokter')->result();
-        $option[''] = 'Pilih Asuransi';
+        $option[''] = 'Pilih Dokter';
         foreach($AryAsuransi as $row) {
             $option[$row->id_dokter] = $row->nama;
         }

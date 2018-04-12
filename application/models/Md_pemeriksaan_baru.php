@@ -22,29 +22,47 @@ class Md_pemeriksaan_baru extends CI_Model {
     }
 
     // Fungsi Tambah Data
-    public function MDL_Insert() {
-        $ttrs_kunjungan = $this->config->item('ttrs_kunjungan');
+    public function MDL_Insert($no_urut) {
+        $ttrs_pemeriksaan_lab = $this->config->item('ttrs_pemeriksaan_lab');
 
         $id = $this->MDL_getAutoID();
 
         $data = array(
-            'no_urut' => $id,
+            'id_pemeriksaan' => $id,
+            'no_urut' => $no_urut,
+            'tgl_kunjungan' => $this->input->post('tgl_kunjungan'),
             'pasien' => $this->input->post('pasien'),
-            'poli' => $this->input->post('poli'),
             'dokter' => $this->input->post('dokter'),
+            'nama_dokter' => '',
+            'asuransi' => $this->input->post('asuransi'),
             'userid' => $this->session->userdata('userid'),
             'moduser' => $this->session->userdata('userid'),
             'recdate' => date("Y-m-d H:i:s"),
             'moddate' => date("Y-m-d H:i:s")
         );
         
-        $res = $this->db->insert('ttrs_kunjungan', $data);
+        $res = $this->db->insert('ttrs_pemeriksaan_lab', $data);
         
+        $barang = $this->input->post('barang');
+         foreach ($barang as $key => $value) {
+            $data2 = array(
+                'id_pemeriksaan' => $id,
+                'kode_tindakan_lab' => $value['item'],
+                'harga' => str_replace(',', '', $value['unit_price']),
+                'diskon' => $value['discount'],
+                'total' => str_replace(',', '', $value['total']),
+                'userid' => $this->session->userdata('userid'),
+                'recdate' => date("Y-m-d H:i:s"),
+                
+            );
+            $this->db->insert('ttrs_pemeriksaan_lab_item', $data2);
+          
+        }
     }
 
     // Fungsi Ubah Data
     public function MDL_Update($id_pasien) {
-        $ttrs_kunjungan = $this->config->item('ttrs_kunjungan');
+        $ttrs_pemeriksaan_lab = $this->config->item('ttrs_pemeriksaan_lab');
 
 
         $data = array(
@@ -56,14 +74,14 @@ class Md_pemeriksaan_baru extends CI_Model {
         );
 
         $this->db->where('id_pasien', $id_pasien);
-        $res = $this->db->update('ttrs_kunjungan', $data);
+        $res = $this->db->update('ttrs_pemeriksaan_lab', $data);
     }
 
     // Fungsi Hapus Data
     public function MDL_Delete($id_pasien) {
-        $ttrs_kunjungan = $this->config->item('ttrs_kunjungan');
+        $ttrs_pemeriksaan_lab = $this->config->item('ttrs_pemeriksaan_lab');
 
-        $this->db->delete('ttrs_kunjungan', array('id_pasien' => $id_pasien));
+        $this->db->delete('ttrs_pemeriksaan_lab', array('id_pasien' => $id_pasien));
     }
 
     public function MDL_SelectID($no_urut) {
@@ -73,13 +91,13 @@ class Md_pemeriksaan_baru extends CI_Model {
     }
 
     public function MDL_getAutoID() {
-        $ttrs_kunjungan = $this->config->item('ttrs_kunjungan');
+        $ttrs_pemeriksaan_lab = $this->config->item('ttrs_pemeriksaan_lab');
 
         $sSQL = "
 			SELECT MAX(p.num) AS no_urut
 			FROM (
-				SELECT CAST(SUBSTRING(id_pasien,5,5) AS UNSIGNED INTEGER) AS num
-				FROM ttrs_kunjungan
+				SELECT CAST(SUBSTRING(id_pemeriksaan,5,5) AS UNSIGNED INTEGER) AS num
+				FROM ttrs_pemeriksaan_lab
 			) p
 			WHERE 1=1
 		";
@@ -92,7 +110,7 @@ class Md_pemeriksaan_baru extends CI_Model {
             $no_urut = 1;
         }
 
-        $hasil = sprintf("CST%05d", $no_urut);
+        $hasil = sprintf("CHK%05d", $no_urut);
 
         return $hasil;
     }
