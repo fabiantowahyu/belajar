@@ -104,25 +104,70 @@
 				<span class="btn btn-primary btn-xs" id="btnAddRow"> <i class="icon-plus"></i> Add items</span>
 				<br><br>
 				
-				<table id="table-detail" class="table table-striped table-bordered table-hover" width="110%">
-					<thead class="info">
-					<tr>
-						<!-- <th width="3%">No.</th> -->
-						<th width="20%" class="center">Item</th>
-						<th width="20%" class="center">Unit Prices</th>
-						<th width="10%" class="center">Discount (%)</th>
-						<th width="20%" class="center">Total</th>
-						<th width="5%"></th>
-					</tr>
-					</thead>
+                                   <table border="1" width="100%" <?php // echo  $last_status != 0 ? 'cellpadding="5"' : '' ?> class="table table-striped table-bordered table-hover">
+                                <thead class="info">
+                                    <tr>
+                                        <th width="20%" class="center">Item</th>
+                                        <th width="20%" class="center">Unit Prices</th>
+                                        <th width="10%" class="center">Discount (%)</th>
+                                        <th width="20%" class="center">Total</th>
+                                        <?php //if ($last_status == 0 OR $last_status == 5) { ?>
+                                            <th width="5%"></th>
+                                        <?php // } ?>
+                                    </tr>
+                                </thead>
+                                <!-- <td><?= $no ?></td> -->
+                                <tbody id="itemRow">
+                                    <?php
+                                    $totaldiskon = 0;
+                                    $grandtotal_diskon = 0;
+                                    $totalunitprice =0;
+                                    foreach ($result_tindakan as $key => $b) {
+                                        $no = $key + 1;
+                                        $harga = number_format($b->harga, 2, '.', ',');
+                                        $diskon = number_format($b->diskon, 2, '.', ',');
+                                        $total = number_format($b->total, 2, '.', ',');
+                                        $total_diskon = ($b->harga * $b->diskon) / 100;
+                                        $totalunitprice = $totalunitprice + $b->harga;
+                                        $grandtotal_diskon = $grandtotal_diskon + $total_diskon;
+                                        ?>
+                                        <tr>
+                                            <td align="center">
+                                                <select name="barang[<?= $key ?>][item]" onChange="cekUom(this,<?= $key ?>)" >
+                                                <?php foreach ($list_tindakan as $i) { ?>
+                <option value="<?= $i->id_tindakan_lab ?>" <?= $b->kode_tindakan_lab == $i->id_tindakan_lab ? 'selected' : '' ?>><?= $i->id_tindakan_lab ?></option>
+                                                            <?php } ?>
+                                                </select>
+                                                <input type="hidden" name="barang[<?= $key ?>][id_item]" value="<?= $b->id ?>">
+                                            </td>
+                                            <td align="center"><input type="text" class="form-control align-right" name="barang[<?= $key ?>][harga]" id="harga_<?= $key ?>" value="<?= $harga ?>" onchange="setNumber(<?= $key ?>)">
+                                            </td>
+                                            <td align="center"><input type="text" class="form-control" name="barang[<?= $key ?>][diskon]" id="diskon_<?= $key ?>" value="<?= $diskon ?>" onchange="setNumber(<?= $key ?>)">
+                                            </td>
+                                            <td align="center">
+                                                <input type="hidden" class="form-control" name="barang[<?= $key ?>][total]" id="total_<?= $key ?>" onclick="sumTotal(<?= $key ?>)" value="<?= $total ?>">
+                                                <input type="text" class="form-control align-right" id="total_temp_<?= $key ?>" onclick="sumTotal(<?= $key ?>)" value="<?= $total ?>" disabled>
+                                            </td>
+                                            <?php //if ($last_status == 0 OR $last_status == 5) { ?>
+                                                <td align="center">
+                                                    <a href="../../purchase_order/CTRL_Delete_item/<?php echo $b->id; ?>" class="btn btn-mini btn-danger"onclick="if (!confirm('Delete Data?'))
+                                                                                    {
+                                                                                        return false;
+                                }
+                                ;"><i class="icon-trash"></i></a>
+                                                </td>
+                                            <?php// } ?>
+                                        </tr>
+                                        <?php
+                                    } $last_num = $key + 1;
+                                    ?>
+                                <input style="width:0px;height: 0px; display: none;" disabled type="text" id="last_num" value="<?php echo $last_num ?>"/>
 
-					<tbody id="itemRow">
-						<tr id="content_row">
-							<td colspan="9" style="padding:2%;"> No data available in table</td>
-						</tr>
-					</tbody>
-				</table>
-				
+
+                                </tbody>
+                            </table>
+
+                                
 				<div class="hr hr8 hr-double hr-dotted"></div>
                                 <div class="row-fluid">
 					<div class="col-md-5 pull-right">

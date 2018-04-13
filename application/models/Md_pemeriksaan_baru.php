@@ -89,6 +89,18 @@ class Md_pemeriksaan_baru extends CI_Model {
 
         return $this->db->get_where('ttrs_kunjungan', array('no_urut' => $no_urut))->row();
     }
+    
+    public function MDL_SelectIDEdit($no_urut) {
+        $ttrs_kunjungan = $this->config->item('ttrs_pemeriksaan_lab');
+
+        return $this->db->get_where('ttrs_pemeriksaan_lab', array('no_urut' => $no_urut))->row();
+    }
+    
+    public function MDL_SelectTindakan($id_pemeriksaan) {
+        $ttrs_pemeriksaan_lab_item = $this->config->item('ttrs_pemeriksaan_lab_item');
+        
+        return $this->db->get_where('ttrs_pemeriksaan_lab_item', array('id_pemeriksaan' => $id_pemeriksaan))->result();
+    }
 
     public function MDL_getAutoID() {
         $ttrs_pemeriksaan_lab = $this->config->item('ttrs_pemeriksaan_lab');
