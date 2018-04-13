@@ -75,7 +75,7 @@
                             <label for="TableName" class="col-md-2 control-label">Nama Pasien</label>
                             <div class="col-md-4">
                                 <?php
-                                                    echo form_dropdown('pasien', $option_pasien, $pasien, 'id ="client_id" class="form-control" data-bv-notempty="true" style="width:100%"');
+                                                    echo form_dropdown('pasien', $option_pasien, $pasien, 'id ="client_id" class="form-control" data-bv-notempty="true" style="width:100%" disabled');
                                   ?>
                             </div>
                         </div>
@@ -83,7 +83,7 @@
                                                 <label for="" class="col-md-2 control-label" >Dokter<span class="text-danger">*</span></label>
                                                 <div class="col-md-4">
                                                     <?php
-                                                    echo form_dropdown('dokter', $option_dokter, $dokter, 'id ="client_id" class="form-control" data-bv-notempty="true" style="width:100%"');
+                                                    echo form_dropdown('dokter', $option_dokter, $dokter, 'id ="client_id" class="form-control" data-bv-notempty="true" style="width:100%" disabled');
                                                     ?>
                                                 </div>
                                             </div>
@@ -91,7 +91,7 @@
                             <label for="TableName" class="col-md-2 control-label">Nama Asuransi</label>
                             <div class="col-md-4">
                                 <?php
-                                echo form_dropdown('asuransi', $option_asuransi, $asuransi, 'id ="client_id" class="form-control" data-bv-notempty="true" style="width:100%"');
+                                echo form_dropdown('asuransi', $option_asuransi, $asuransi, 'id ="client_id" class="form-control" data-bv-notempty="true" style="width:100%" disabled');
                                 ?>
                             </div>
                         </div>
@@ -101,7 +101,7 @@
                     <div class="col-md-12">
                         <input type="hidden" id="last_num">
 				<h4 class="header blue bolder smaller">Hasil Pemeriksaan</h4>
-			<?php    foreach ($result_tindakan as $value) {?>
+			<?php    foreach ($result_tindakan as $key=>$value) {?>
 
 
                                     
@@ -109,6 +109,7 @@
                             <label for="TableName" class="col-md-2 control-label">Nama Tindakan</label>
                             <div class="col-md-4">
                                 <label class="form-control-static">nama tindakan</label>
+                                <input type="hidden" name="hasil[<?php echo $key;?>][kode_tindakan_lab]" value="<?php echo $value->kode_tindakan_lab;?>">
                             </div>
                         </div>
                                 
@@ -117,7 +118,7 @@
                             <label for="TableName" class="col-md-2 control-label">Nilai</label>
                             <div class="col-md-4">
 <?php
-                                $input = array('name' => 'nilai', 'value' => $tgl_kunjungan, 'id' => 'TypeName', 'class' => 'form-control', 'readonly' => 'true');
+                                $input = array('name' => 'hasil['.$key.'][nilai]', 'id' => 'TypeName', 'class' => 'form-control');
                                 echo form_input($input);
                                 ?>
                             </div>
@@ -126,7 +127,7 @@
                             <label for="TableName" class="col-md-2 control-label">Saran</label>
                             <div class="col-md-4">
                                <?php
-                                $input = array('name' => 'saran', 'value' => $tgl_kunjungan, 'id' => 'TypeName', 'class' => 'form-control', 'readonly' => 'true');
+                                $input = array('name' => 'hasil['.$key.'][saran]',  'id' => 'TypeName', 'class' => 'form-control');
                                 echo form_input($input);
                                 ?>
                             </div>
@@ -136,7 +137,7 @@
                             <label for="TableName" class="col-md-2 control-label">Analisis</label>
                             <div class="col-md-4">
                                <?php
-                                $input = array('name' => 'saran', 'value' => $tgl_kunjungan, 'id' => 'TypeName', 'class' => 'form-control', 'readonly' => 'true');
+                                $input = array('name' => 'hasil['.$key.'][analisis]',  'id' => 'TypeName', 'class' => 'form-control');
                                 echo form_input($input);
                                 ?>
                             </div>

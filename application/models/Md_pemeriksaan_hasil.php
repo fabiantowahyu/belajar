@@ -4,7 +4,7 @@ class Md_pemeriksaan_hasil extends CI_Model {
 
     // Fungsi Ambil Data
     public function MDL_Select() {
-        $ttrs_kunjungan = $this->config->item('ttrs_kunjungan');
+        $ttrs_pemeriksaan_lab = $this->config->item('ttrs_kunjungan');
 
         $hasil = array();
 
@@ -22,40 +22,32 @@ class Md_pemeriksaan_hasil extends CI_Model {
     }
 
     // Fungsi Tambah Data
-    public function MDL_Insert($no_urut) {
+    public function MDL_Insert($id_pemeriksaan) {
         $ttrs_pemeriksaan_lab = $this->config->item('ttrs_pemeriksaan_lab');
 
-        $id = $this->MDL_getAutoID();
+        //$id = $this->MDL_getAutoID();
 
         $data = array(
-            'id_pemeriksaan' => $id,
-            'no_urut' => $no_urut,
-            'tgl_kunjungan' => $this->input->post('tgl_kunjungan'),
-            'pasien' => $this->input->post('pasien'),
-            'dokter' => $this->input->post('dokter'),
-            'nama_dokter' => '',
-            'asuransi' => $this->input->post('asuransi'),
-            'userid' => $this->session->userdata('userid'),
-            'moduser' => $this->session->userdata('userid'),
-            'recdate' => date("Y-m-d H:i:s"),
+            //'id_pemeriksaan' => $id,
             'moddate' => date("Y-m-d H:i:s")
         );
+        $this->db->where('id_pemeriksaan', $id_pemeriksaan);
+        $this->db->update('ttrs_pemeriksaan_lab', $data);
         
-        $res = $this->db->insert('ttrs_pemeriksaan_lab', $data);
-        
-        $barang = $this->input->post('barang');
-         foreach ($barang as $key => $value) {
+        $hasil = $this->input->post('hasil');
+         foreach ($hasil as $key => $value) {
             $data2 = array(
-                'id_pemeriksaan' => $id,
-                'kode_tindakan_lab' => $value['item'],
-                'harga' => str_replace(',', '', $value['unit_price']),
-                'diskon' => $value['discount'],
-                'total' => str_replace(',', '', $value['total']),
+                
+                 'id_pemeriksaan' => $id_pemeriksaan,
+                'kode_tindakan_lab' => $value['kode_tindakan_lab'],
+                'nilai' => $value['nilai'],
+                'saran' => $value['saran'],
+                'analisis' => $value['analisis'],
                 'userid' => $this->session->userdata('userid'),
                 'recdate' => date("Y-m-d H:i:s"),
                 
             );
-            $this->db->insert('ttrs_pemeriksaan_lab_item', $data2);
+            $this->db->insert('ttrs_pemeriksaan_lab_hasil', $data2);
           
         }
     }
@@ -84,10 +76,16 @@ class Md_pemeriksaan_hasil extends CI_Model {
         $this->db->delete('ttrs_pemeriksaan_lab', array('id_pasien' => $id_pasien));
     }
 
-    public function MDL_SelectID($no_urut) {
-        $ttrs_kunjungan = $this->config->item('ttrs_kunjungan');
-
-        return $this->db->get_where('ttrs_kunjungan', array('no_urut' => $no_urut))->row();
+    public function MDL_SelectID($id_pemeriksaan) {
+        $ttrs_pemeriksaan_lab = $this->config->item('ttrs_pemeriksaan_lab');
+        
+        return $this->db->get_where('ttrs_pemeriksaan_lab', array('id_pemeriksaan' => $id_pemeriksaan))->row();
+    }
+    
+    public function MDL_SelectTindakan($id_pemeriksaan) {
+        $ttrs_pemeriksaan_lab = $this->config->item('ttrs_pemeriksaan_lab_item');
+        
+        return $this->db->get_where('ttrs_pemeriksaan_lab_item', array('id_pemeriksaan' => $id_pemeriksaan))->result();
     }
 
     public function MDL_getAutoID() {

@@ -58,6 +58,7 @@ class Pemeriksaan_hasil extends CI_Controller {
             if ($this->input->post('btn_submit')) {
                
                 //die();
+                //$this->auth->TVD($_POST);die();
                     $this->md_pemeriksaan_hasil->MDL_Insert($id_pemeriksaan);
                     redirect('pemeriksaan_hasil');
                 
@@ -81,10 +82,10 @@ class Pemeriksaan_hasil extends CI_Controller {
             $data['tgl_kunjungan'] = $hasil->recdate;
             $data['pasien'] = $hasil->pasien;
             $data['dokter'] = $hasil->dokter;
-            $data['asuransi'] = '';
+            $data['asuransi'] = $hasil->asuransi;
             
             $data['result_tindakan'] = $this->md_pemeriksaan_hasil->MDL_SelectTindakan($id_pemeriksaan);
-            
+            //var_dump($data['result_tindakan']);die();
             
             $data['option_pasien'] = $this->CTRL_Option_Pasien();
             $data['option_dokter'] = $this->CTRL_Option_Dokter();
@@ -93,8 +94,8 @@ class Pemeriksaan_hasil extends CI_Controller {
 
             $nm_title = $this->auth->Auth_getNameMenu();
             $data['title'] = sprintf("%s",$nm_title);
-            $data['url'] = 'pemeriksaan_hasil/CTRL_New/'.$no_urut;
-            $data['page'] = 'Pemeriksaan/form_item_pemeriksaan';
+            $data['url'] = 'pemeriksaan_hasil/CTRL_New/'.$id_pemeriksaan;
+            $data['page'] = 'Pemeriksaan/form_item_pemeriksaan_hasil';
             $data['plugin'] = 'Pemeriksaan/plugin';
             $this->load->view('template_admin', $data);
         }
