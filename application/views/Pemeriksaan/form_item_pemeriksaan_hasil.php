@@ -98,39 +98,50 @@
               
                     </fieldset>
                     
-                    <div class="span11">
+                    <div class="col-md-12">
                         <input type="hidden" id="last_num">
-				<h4 class="header blue bolder smaller">Items</h4>
-				<span class="btn btn-primary btn-xs" id="btnAddRow"> <i class="icon-plus"></i> Add items</span>
-				<br><br>
-				
-				<table id="table-detail" class="table table-striped table-bordered table-hover" width="110%">
-					<thead class="info">
-					<tr>
-						<!-- <th width="3%">No.</th> -->
-						<th width="20%" class="center">Item</th>
-						<th width="20%" class="center">Unit Prices</th>
-						<th width="10%" class="center">Discount (%)</th>
-						<th width="20%" class="center">Total</th>
-						<th width="5%"></th>
-					</tr>
-					</thead>
+				<h4 class="header blue bolder smaller">Hasil Pemeriksaan</h4>
+			<?php    foreach ($result_tindakan as $value) {?>
 
-					<tbody id="itemRow">
-						<tr id="content_row">
-							<td colspan="9" style="padding:2%;"> No data available in table</td>
-						</tr>
-					</tbody>
-				</table>
-				
-				<div class="hr hr8 hr-double hr-dotted"></div>
-                                <div class="row-fluid">
-					<div class="col-md-5 pull-right">
-						<h4 class="pull-right">
-							Total : <input type="text" class="input align-right" id="grandtotal" placeholder="Total" disabled/>
-						</h4>
-					</div>
-				</div>
+
+                                    
+                                <div class="form-group">
+                            <label for="TableName" class="col-md-2 control-label">Nama Tindakan</label>
+                            <div class="col-md-4">
+                                <label class="form-control-static">nama tindakan</label>
+                            </div>
+                        </div>
+                                
+                                
+                                <div class="form-group">
+                            <label for="TableName" class="col-md-2 control-label">Nilai</label>
+                            <div class="col-md-4">
+<?php
+                                $input = array('name' => 'nilai', 'value' => $tgl_kunjungan, 'id' => 'TypeName', 'class' => 'form-control', 'readonly' => 'true');
+                                echo form_input($input);
+                                ?>
+                            </div>
+                        </div>
+                                <div class="form-group">
+                            <label for="TableName" class="col-md-2 control-label">Saran</label>
+                            <div class="col-md-4">
+                               <?php
+                                $input = array('name' => 'saran', 'value' => $tgl_kunjungan, 'id' => 'TypeName', 'class' => 'form-control', 'readonly' => 'true');
+                                echo form_input($input);
+                                ?>
+                            </div>
+                        </div>
+                                
+                                <div class="form-group">
+                            <label for="TableName" class="col-md-2 control-label">Analisis</label>
+                            <div class="col-md-4">
+                               <?php
+                                $input = array('name' => 'saran', 'value' => $tgl_kunjungan, 'id' => 'TypeName', 'class' => 'form-control', 'readonly' => 'true');
+                                echo form_input($input);
+                                ?>
+                            </div>
+                        </div>
+                        <?php }?>
                     </div>
                     <div class="hr-line-dashed"></div>
                     <div class="clearfix"></div>

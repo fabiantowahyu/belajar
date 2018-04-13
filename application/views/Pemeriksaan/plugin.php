@@ -243,38 +243,15 @@ function setNumber(i) {
                 
     });
 function calculate() {
-//
-//        var subtotal = 0;
-//        var subtotaltax = 0;
-//        var grandtotal = 0;
-//        var total_unitprice = 0;
-//        var total_discount = 0;
-//        var persen_discount = 0;
-//        var arrtax = document.querySelectorAll('input[id^="tax_amount_temp_"]');
-//        var arrqty = document.querySelectorAll('input[id^="qty_"]');
-//        var arr = document.querySelectorAll('input[id^="total_temp_"]');
-//        var arr_unitprice = document.querySelectorAll('input[id^="unit_price_"]');
-//        for (var a = 0; a < (arr.length); a++) {
-//            subtotal += parseFloat(arr[a].value.replace(/,/g, ""));
-//            subtotaltax += parseFloat(arrtax[a].value.replace(/,/g, ""));
-//            total_unitprice += parseFloat(arr_unitprice[a].value.replace(/,/g, "")) * parseFloat(arrqty[a].value.replace(/,/g, ""));
-//            grandtotal = subtotal + subtotaltax;
-//
-//            $('#subtotal').val(numeral(subtotal).format('0,0.00'));
-//            $('#subtotaltax').val(numeral(subtotaltax).format('0,0.00'));
-//            $('#grandtotal').val(numeral(grandtotal).format('0,0.00'));
-//        }
-//
-//        total_discount = total_unitprice - subtotal;
-//
-//        persen_discount = (total_discount / total_unitprice) * 100;
-//        if (isNaN(persen_discount)) {
-//            persen_discount = 0;
-//        }
-//
-//        $('#total_discount').text(numeral(total_discount).format('0,0.00'));
-//        $('#persen_discount').text(persen_discount.toFixed(2));
-//        //alert(persen_discount);
+
+        var subtotal = 0;
+        var arr = document.querySelectorAll('input[id^="total_temp_"]');
+        for (var a = 0; a < (arr.length); a++) {
+            subtotal += parseFloat(arr[a].value.replace(/,/g, ""));
+         
+         
+            $('#grandtotal').val(numeral(subtotal).format('0,0.00'));
+        }
 
     }
 
