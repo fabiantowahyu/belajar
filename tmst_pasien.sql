@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 06, 2018 at 04:50 AM
+-- Generation Time: Apr 25, 2018 at 10:09 AM
 -- Server version: 10.1.16-MariaDB
 -- PHP Version: 5.6.24
 
@@ -29,7 +29,7 @@ SET time_zone = "+00:00";
 CREATE TABLE `tmst_pasien` (
   `id` int(11) NOT NULL,
   `id_pasien` varchar(32) NOT NULL,
-  `nama` varchar(384) NOT NULL,
+  `nama_pasien` varchar(384) NOT NULL,
   `no_rm` varchar(32) NOT NULL,
   `asuransi` varchar(32) NOT NULL,
   `no_asuransi` varchar(64) NOT NULL,
@@ -54,9 +54,9 @@ CREATE TABLE `tmst_pasien` (
 -- Dumping data for table `tmst_pasien`
 --
 
-INSERT INTO `tmst_pasien` (`id`, `id_pasien`, `nama`, `no_rm`, `asuransi`, `no_asuransi`, `alamat`, `telp`, `foto`, `userid`, `recdate`, `moddate`, `moduser`, `kota`, `jenis_kelamin`, `pekerjaan`, `status_perkawinan`, `tempat_lahir`, `tanggal_lahir`, `umur`, `email`) VALUES
-(1, 'MDC00002', 'asd1', '', '', '', 'asd2', 'asd3', '1233', 'EMP00001', '2018-03-29 14:11:26', '2018-03-29 14:18:27', 'EMP00001', '', '', '', '', '', '0000-00-00', 0, ''),
-(2, 'DCT00003', 'asd', '', '', '', 'asd', 'asd', 'asd', 'EMP00001', '2018-03-29 14:48:30', '2018-03-29 14:48:30', 'EMP00001', '', '', '', '', '', '0000-00-00', 0, '');
+INSERT INTO `tmst_pasien` (`id`, `id_pasien`, `nama_pasien`, `no_rm`, `asuransi`, `no_asuransi`, `alamat`, `telp`, `foto`, `userid`, `recdate`, `moddate`, `moduser`, `kota`, `jenis_kelamin`, `pekerjaan`, `status_perkawinan`, `tempat_lahir`, `tanggal_lahir`, `umur`, `email`) VALUES
+(1, 'PSN00001', 'Bapa', 'no_rm_bapa', 'ASRN00001', 'no_asuransi12', 'asd2', 'asd3', '1233', 'EMP00001', '2018-03-29 14:11:26', '2018-03-29 14:18:27', 'EMP00001', '', '', '', '', '', '0000-00-00', 0, ''),
+(2, 'PSN00002', 'Ibu', 'no_rm_ibu', 'ASRN00001', 'no_asuransiibu', 'asd', 'asd', 'asd', 'EMP00001', '2018-03-29 14:48:30', '2018-03-29 14:48:30', 'EMP00001', '', '', '', '', '', '0000-00-00', 0, '');
 
 --
 -- Indexes for dumped tables

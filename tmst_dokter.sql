@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 02, 2018 at 11:24 AM
+-- Generation Time: Apr 25, 2018 at 10:09 AM
 -- Server version: 10.1.16-MariaDB
 -- PHP Version: 5.6.24
 
@@ -46,8 +46,8 @@ CREATE TABLE `tmst_dokter` (
 --
 
 INSERT INTO `tmst_dokter` (`id`, `id_dokter`, `nama`, `jabatan`, `alamat`, `telp`, `poli`, `jadwal`, `userid`, `recdate`, `moddate`, `moduser`) VALUES
-(1, 'MDC00002', 'asd1', '', 'asd2', 'asd3', '1233', '', 'EMP00001', '2018-03-29 14:11:26', '2018-03-29 14:18:27', 'EMP00001'),
-(2, 'DCT00003', 'asd', '', 'asd', 'asd', 'asd', 'sd', 'EMP00001', '2018-03-29 14:48:30', '2018-03-29 14:48:30', 'EMP00001');
+(1, 'DCT00001', 'Dito 1', 'dokter', 'munjul Jaya', '1234567', '1233', '', 'EMP00001', '2018-03-29 14:11:26', '2018-03-29 14:18:27', 'EMP00001'),
+(2, 'DCT00003', 'Dito 2', 'perawat', 'ipik gandamanah', '7654321', 'asd', 'sd', 'EMP00001', '2018-03-29 14:48:30', '2018-03-29 14:48:30', 'EMP00001');
 
 --
 -- Indexes for dumped tables

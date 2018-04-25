@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 02, 2018 at 11:05 AM
+-- Generation Time: Apr 25, 2018 at 10:09 AM
 -- Server version: 10.1.16-MariaDB
 -- PHP Version: 5.6.24
 
@@ -29,7 +29,7 @@ SET time_zone = "+00:00";
 CREATE TABLE `tmst_tindakan` (
   `id` int(11) NOT NULL,
   `id_tindakan` varchar(32) NOT NULL,
-  `nama` text NOT NULL,
+  `nama_tindakan` text NOT NULL,
   `poli` varchar(256) NOT NULL,
   `jenis` varchar(32) NOT NULL,
   `tarif_umum` decimal(10,0) NOT NULL,
@@ -46,8 +46,8 @@ CREATE TABLE `tmst_tindakan` (
 -- Dumping data for table `tmst_tindakan`
 --
 
-INSERT INTO `tmst_tindakan` (`id`, `id_tindakan`, `nama`, `poli`, `jenis`, `tarif_umum`, `tarif_member`, `fee_dokter`, `fee_nurse`, `userid`, `recdate`, `moddate`, `moduser`) VALUES
-(1, 'MDC00002', 'asd1', 'asd2', 'asd3', '1233', '0.00', '0.00', '0.00', 'EMP00001', '2018-03-29 14:11:26', '2018-03-29 14:18:27', 'EMP00001');
+INSERT INTO `tmst_tindakan` (`id`, `id_tindakan`, `nama_tindakan`, `poli`, `jenis`, `tarif_umum`, `tarif_member`, `fee_dokter`, `fee_nurse`, `userid`, `recdate`, `moddate`, `moduser`) VALUES
+(1, 'TND00001', 'Jahit Luka', 'asd2', 'asd3', '1233', '0.00', '0.00', '0.00', 'EMP00001', '2018-03-29 14:11:26', '2018-03-29 14:18:27', 'EMP00001');
 
 --
 -- Indexes for dumped tables
