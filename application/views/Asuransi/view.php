@@ -65,7 +65,7 @@
                                     <?php foreach ($results as $row) { ?>
                                     <tr>
                                         <td><?php echo $row->id_asuransi; ?></td>
-                                        <td><?php echo $row->nama; ?></td>
+                                        <td><?php echo $row->nama_asuransi; ?></td>
                                         <td><?php echo $row->alamat; ?></td>
                                         <td><?php echo $row->telp; ?></td>
                                         <td><?php echo $row->kontak; ?></td>

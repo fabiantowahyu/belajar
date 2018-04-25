@@ -62,7 +62,7 @@
                                     <?php foreach ($results as $row) { ?>
                                     <tr>
                                         <td><?php echo $row->id_pasien; ?></td>
-                                        <td><?php echo $row->nama; ?></td>
+                                        <td><?php echo $row->nama_pasien; ?></td>
                                         <td><?php echo $row->alamat; ?></td>
                                         <td><?php echo $row->telp; ?></td>
                                         <td><?php echo $row->foto; ?></td>

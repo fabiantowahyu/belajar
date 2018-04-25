@@ -66,7 +66,7 @@
                             <label for="TableName" class="col-md-2 control-label">Nama Pasien</label>
                             <div class="col-md-4">
                                 <?php
-                                $input = array('name' => 'nama', 'placeholder' => 'Nama Pasien', 'id' => 'TypeName', 'class' => 'form-control', 'data-bv-notempty' => 'true');
+                                $input = array('name' => 'nama_pasien', 'placeholder' => 'Nama Pasien', 'id' => 'TypeName', 'class' => 'form-control', 'data-bv-notempty' => 'true');
                                 echo form_input($input);
                                 ?>
                             </div>

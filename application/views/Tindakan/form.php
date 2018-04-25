@@ -56,7 +56,7 @@
                     <label for="TypeName" class="col-md-2 control-label">Nama Tindakan</label>
                     <div class="col-md-4">
                         <?php
-                        $input = array('name' => 'nama', 'placeholder' => 'Nama Tindakan', 'id' => 'TypeName', 'class' => 'form-control', 'data-bv-notempty' => 'true');
+                        $input = array('name' => 'nama_tindakan', 'placeholder' => 'Nama Tindakan', 'id' => 'TypeName', 'class' => 'form-control', 'data-bv-notempty' => 'true');
                         echo form_input($input);
                         ?>
                     </div>

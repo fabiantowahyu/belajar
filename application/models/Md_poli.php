@@ -30,7 +30,7 @@ class Md_poli extends CI_Model {
 		
 		$data = array(
 			'id_poli' => $id,
-			'nama' => $this->input->post('nama'),
+			'nama_poli' => $this->input->post('nama_poli'),
 			'userid' => $this->session->userdata('userid'),
                         'moduser' => $this->session->userdata('userid'),
 			'recdate' => date("Y-m-d H:i:s"),
@@ -46,7 +46,7 @@ class Md_poli extends CI_Model {
 
 		
 		$data = array(
-			'nama' => $this->input->post('nama'),
+			'nama_poli' => $this->input->post('nama_poli'),
 			'poli' => $this->input->post('poli'),
 			'moduser' => $this->session->userdata('userid'),
 			'moddate' => date("Y-m-d H:i:s")

@@ -129,7 +129,7 @@ class Dokter extends CI_Controller {
 
                 $hasil = $this->md_dokter->MDL_SelectID($id_dokter);
                 $data['id_dokter'] = $hasil->id_dokter;
-                $data['nama'] = $hasil->nama;
+                $data['nama_dokter'] = $hasil->nama_dokter;
                 $data['alamat'] = $hasil->alamat;
                 $data['poli'] = $hasil->poli;
                 $data['telp'] = $hasil->telp;

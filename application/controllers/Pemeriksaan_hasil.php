@@ -106,7 +106,7 @@ public function CTRL_Option_Pasien() {
         $AryAsuransi = $this->db->get_where('tmst_pasien')->result();
         $option[''] = 'Pilih Pasien';
         foreach($AryAsuransi as $row) {
-            $option[$row->id_pasien] = $row->nama;
+            $option[$row->id_pasien] = $row->nama_pasien;
         }
 
         return $option;
@@ -116,7 +116,7 @@ public function CTRL_Option_Pasien() {
         $AryAsuransi = $this->db->get_where('tmst_dokter')->result();
         $option[''] = 'Pilih Dokter';
         foreach($AryAsuransi as $row) {
-            $option[$row->id_dokter] = $row->nama;
+            $option[$row->id_dokter] = $row->nama_dokter;
         }
 
         return $option;
@@ -126,7 +126,7 @@ public function CTRL_Option_Pasien() {
         $AryPoli = $this->db->get_where('tmst_poli')->result();
         $option[''] = 'Pilih Poli';
         foreach($AryPoli as $row) {
-            $option[$row->id_poli] = $row->nama;
+            $option[$row->id_poli] = $row->nama_poli;
         }
 
         return $option;

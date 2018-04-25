@@ -132,7 +132,7 @@ class Tindakan_lab extends CI_Controller {
 
                 $hasil = $this->md_tindakan_lab->MDL_SelectID($id_tindakan_lab);
                 $data['id_tindakan_lab'] = $hasil->id_tindakan_lab;
-                $data['nama'] = $hasil->nama;
+                $data['nama_tindakan_lab'] = $hasil->nama_tindakan_lab;
                 $data['option_golongan'] =  $this->CTRL_Option_Golongan();
                 $data['option_jenis'] =  $this->CTRL_Option_Jenis_Tindakan_lab();
                 $data['option_satuan'] = $this->CTRL_Option_Satuan();

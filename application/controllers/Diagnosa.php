@@ -129,7 +129,7 @@ class Diagnosa extends CI_Controller {
 
                 $hasil = $this->md_diagnosa->MDL_SelectID($id_diagnosa);
                 $data['id_diagnosa'] = $hasil->id_diagnosa;
-                $data['nama'] = $hasil->nama;
+                $data['nama_diagnosa'] = $hasil->nama_diagnosa;
                 $data['option_poli'] = $this->CTRL_Option_Poli();
                 $data['poli'] = $hasil->poli;
 
@@ -195,7 +195,7 @@ class Diagnosa extends CI_Controller {
         $AryPoli = $this->db->get_where('tmst_poli')->result();
         $option[''] = 'Pilih Poli';
         foreach($AryPoli as $row) {
-            $option[$row->id_poli] = $row->nama;
+            $option[$row->id_poli] = $row->nama_poli;
         }
 
         return $option;

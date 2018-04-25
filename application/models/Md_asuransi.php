@@ -30,7 +30,7 @@ class Md_asuransi extends CI_Model {
 		
 		$data = array(
 			'id_asuransi' => $id,
-			'nama' => $this->input->post('nama'),
+			'nama_asuransi' => $this->input->post('nama_asuransi'),
 			'alamat' => $this->input->post('alamat'),
 			'telp' => $this->input->post('telp'),
                         'kontak' => $this->input->post('kontak'),
@@ -52,7 +52,7 @@ class Md_asuransi extends CI_Model {
 
 		
 		$data = array(
-			'nama' => $this->input->post('nama'),
+			'nama_asuransi' => $this->input->post('nama_asuransi'),
 			'alamat' => $this->input->post('alamat'),
 			'telp' => $this->input->post('telp'),
                         'kontak' => $this->input->post('kontak'),

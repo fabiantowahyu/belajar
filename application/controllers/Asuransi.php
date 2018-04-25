@@ -129,7 +129,7 @@ class Asuransi extends CI_Controller {
 
                 $hasil = $this->md_asuransi->MDL_SelectID($id_asuransi);
                 $data['id_asuransi'] = $hasil->id_asuransi;
-                $data['nama'] = $hasil->nama;
+                $data['nama_asuransi'] = $hasil->nama_asuransi;
                 $data['alamat'] = $hasil->alamat;
                 $data['kontak'] = $hasil->kontak;
                 $data['telp'] = $hasil->telp;

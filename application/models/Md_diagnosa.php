@@ -30,7 +30,7 @@ class Md_diagnosa extends CI_Model {
 		
 		$data = array(
 			'id_diagnosa' => $id,
-			'nama' => $this->input->post('nama'),
+			'nama_diagnosa' => $this->input->post('nama_diagnosa'),
 			'poli' => $this->input->post('poli'),
 			'userid' => $this->session->userdata('userid'),
                         'moduser' => $this->session->userdata('userid'),
@@ -47,7 +47,7 @@ class Md_diagnosa extends CI_Model {
 
 		
 		$data = array(
-			'nama' => $this->input->post('nama'),
+			'nama_diagnosa' => $this->input->post('nama_diagnosa'),
 			'poli' => $this->input->post('poli'),
 			'moduser' => $this->session->userdata('userid'),
 			'moddate' => date("Y-m-d H:i:s")

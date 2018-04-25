@@ -30,7 +30,7 @@ class Md_tindakan extends CI_Model {
 		
 		$data = array(
 			'id_tindakan' => $id,
-			'nama' => $this->input->post('nama'),
+			'nama_tindakan' => $this->input->post('nama_tindakan'),
 			'poli' => $this->input->post('poli'),
 			'jenis' => $this->input->post('jenis'),
                         'tarif_umum' => $this->input->post('tarif_umum'),
@@ -71,7 +71,7 @@ class Md_tindakan extends CI_Model {
 
 		
 		$data = array(
-			'nama' => $this->input->post('nama'),
+			'nama_tindakan' => $this->input->post('nama_tindakan'),
 			'poli' => $this->input->post('poli'),
 			'jenis' => $this->input->post('jenis'),
                         'tarif_umum' => $this->input->post('tarif_umum'),

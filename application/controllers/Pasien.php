@@ -78,7 +78,11 @@ class Pasien extends CI_Controller {
                 $data['breadcrum'] = $breadcrum;
                 /* end */
 
-               
+               $data['option_asuransi'] = $this->CTRL_Option_Asuransi();
+            $data['option_jenis_kelamin'] = $this->CTRL_Option_Jenis_Kelamin();
+            $data['option_status_perkawinan'] = $this->CTRL_Option_Status_Perkawinan();
+            $data['option_jenis_pekerjaan'] = $this->CTRL_Option_Pekerjaan();
+            $data['option_kota'] = array('PURWAKARTA'=>'PURWAKARTA');
 
                 $nm_title = $this->auth->Auth_getNameMenu();
                 $data['title_head'] = sprintf("%s - Add New",$nm_title);
@@ -129,7 +133,7 @@ class Pasien extends CI_Controller {
 
                 $hasil = $this->md_pasien->MDL_SelectID($id_pasien);
                 $data['id_pasien'] = $hasil->id_pasien;
-                $data['nama'] = $hasil->nama;
+                $data['nama_pasien'] = $hasil->nama_pasien;
                 $data['alamat'] = $hasil->alamat;
                 $data['foto'] = $hasil->foto;
                 $data['telp'] = $hasil->telp;
@@ -145,7 +149,11 @@ class Pasien extends CI_Controller {
                 $data['umur'] = $hasil->umur;
                 $data['email'] = $hasil->email;
                
-
+            $data['option_asuransi'] = $this->CTRL_Option_Asuransi();
+            $data['option_jenis_kelamin'] = $this->CTRL_Option_Jenis_Kelamin();
+            $data['option_status_perkawinan'] = $this->CTRL_Option_Status_Perkawinan();
+            $data['option_jenis_pekerjaan'] = $this->CTRL_Option_Pekerjaan();
+            $data['option_kota'] = array('PURWAKARTA'=>'PURWAKARTA');
                
                 $nm_title = $this->auth->Auth_getNameMenu();
                 $data['title_head'] = sprintf("%s - Update",$nm_title);
@@ -180,5 +188,48 @@ class Pasien extends CI_Controller {
     }
 
     
+ public function CTRL_Option_Asuransi() {
+        $AryAsuransi = $this->db->get_where('tmst_asuransi')->result();
+        $option[''] = 'Pilih Asuransi';
+        foreach($AryAsuransi as $row) {
+            $option[$row->id_asuransi] = $row->nama;
+        }
+
+        return $option;
+    }
+    
+    public function CTRL_Option_Jenis_Kelamin() {
+        $this->load->Model('md_ref_json');
+        $AryCompany = $this->md_ref_json->MDL_Select_MasterType('JENIS_KELAMIN');
+        
+        foreach($AryCompany as $row) {
+            $option[$row->id] = $row->name;
+        }
+
+        return $option;
+    }
+    
+    
+    public function CTRL_Option_Status_Perkawinan() {
+        $this->load->Model('md_ref_json');
+        $AryCompany = $this->md_ref_json->MDL_Select_MasterType('STATUS_PERKAWINAN');
+        
+        foreach($AryCompany as $row) {
+            $option[$row->id] = $row->name;
+        }
+
+        return $option;
+    }
+    
+    public function CTRL_Option_Pekerjaan() {
+        $this->load->Model('md_ref_json');
+        $AryCompany = $this->md_ref_json->MDL_Select_MasterType('JENIS_PEKERJAAN');
+        
+        foreach($AryCompany as $row) {
+            $option[$row->id] = $row->name;
+        }
+
+        return $option;
+    }
 
 }

@@ -132,7 +132,7 @@ class Tindakan extends CI_Controller {
 
                 $hasil = $this->md_tindakan->MDL_SelectID($id_tindakan);
                 $data['id_tindakan'] = $hasil->id_tindakan;
-                $data['nama'] = $hasil->nama;
+                $data['nama_tindakan'] = $hasil->nama_tindakan;
                 $data['option_poli'] =  $this->CTRL_Option_Poli();
                 $data['option_jenis_tindakan'] =  $this->CTRL_Option_Jenis_Tindakan();
                 $data['poli'] = $hasil->poli;
@@ -221,7 +221,7 @@ class Tindakan extends CI_Controller {
         $AryPoli = $this->db->get_where('tmst_poli')->result();
         $option[''] = 'Pilih Poli';
         foreach($AryPoli as $row) {
-            $option[$row->id_poli] = $row->nama;
+            $option[$row->id_poli] = $row->nama_poli;
         }
 
         return $option;

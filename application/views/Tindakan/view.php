@@ -62,7 +62,7 @@
                                     <?php foreach ($results as $row) { ?>
                                     <tr>
                                         <td><?php echo $row->id_tindakan; ?></td>
-                                        <td><?php echo $row->nama; ?></td>
+                                        <td><?php echo $row->nama_tindakan; ?></td>
                                         <td><?php echo $row->poli; ?></td>
                                         <td><?php echo $row->jenis; ?></td>
                                         <td><?php echo $row->tarif_umum; ?></td>

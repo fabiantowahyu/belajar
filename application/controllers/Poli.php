@@ -129,7 +129,7 @@ class Poli extends CI_Controller {
 
                 $hasil = $this->md_poli->MDL_SelectID($id_poli);
                 $data['id_poli'] = $hasil->id_poli;
-                $data['nama'] = $hasil->nama;
+                $data['nama_poli'] = $hasil->nama_poli;
 
                
                 $nm_title = $this->auth->Auth_getNameMenu();

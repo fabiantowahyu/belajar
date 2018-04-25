@@ -46,7 +46,7 @@
                     <label for="TypeName" class="col-md-2 control-label">ID Poli</label>
                     <div class="col-md-4">
                         <?php
-                        $input = array('name' => 'nama','value'=>$id_poli, 'placeholder' => 'ID Poli', 'id' => 'TypeName', 'class' => 'form-control', 'data-bv-notempty' => 'true');
+                        $input = array('name' => 'id_poli','value'=>$id_poli, 'placeholder' => 'ID Poli', 'id' => 'TypeName', 'class' => 'form-control', 'data-bv-notempty' => 'true');
                         echo form_input($input);
                         ?>
                     </div>
@@ -55,7 +55,7 @@
                     <label for="TypeName" class="col-md-2 control-label">Nama Poli</label>
                     <div class="col-md-4">
                         <?php
-                        $input = array('name' => 'nama','value'=>$nama, 'placeholder' => 'Nama Poli', 'id' => 'TypeName', 'class' => 'form-control', 'data-bv-notempty' => 'true');
+                        $input = array('name' => 'nama_poli','value'=>$nama_poli, 'placeholder' => 'Nama Poli', 'id' => 'TypeName', 'class' => 'form-control', 'data-bv-notempty' => 'true');
                         echo form_input($input);
                         ?>
                     </div>

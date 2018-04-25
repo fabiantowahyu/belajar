@@ -60,7 +60,7 @@
                                     <?php foreach ($results as $row) { ?>
                                     <tr>
                                         <td><?php echo $row->id_diagnosa; ?></td>
-                                        <td><?php echo $row->nama; ?></td>
+                                        <td><?php echo $row->nama_diagnosa; ?></td>
                                         <td><?php echo $row->poli; ?></td>
                                         <td class="center">
                                             <?php 

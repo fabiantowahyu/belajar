@@ -59,7 +59,7 @@
                                     <?php foreach ($results as $row) { ?>
                                     <tr>
                                         <td><?php echo $row->id_poli; ?></td>
-                                        <td><?php echo $row->nama; ?></td>
+                                        <td><?php echo $row->nama_poli; ?></td>
                                         <td><?php echo $row->poli; ?></td>
                                         <td class="center">
                                             <?php 

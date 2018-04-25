@@ -61,7 +61,7 @@ class Pasien_pendaftaran extends CI_Controller {
         $AryAsuransi = $this->db->get_where('tmst_asuransi')->result();
         $option[''] = 'Pilih Asuransi';
         foreach($AryAsuransi as $row) {
-            $option[$row->id_asuransi] = $row->nama;
+            $option[$row->id_asuransi] = $row->nama_asuransi;
         }
 
         return $option;
