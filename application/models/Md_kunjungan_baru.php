@@ -9,7 +9,10 @@ class Md_kunjungan_baru extends CI_Model {
         $hasil = array();
 
         $sSQL = "
-			SELECT * from ttrs_kunjungan where status_kunjungan=0
+			SELECT * ,d.nama as nama_dokter from $ttrs_kunjungan k
+                            left join tmst_dokter d on k.dokter = d.id_dokter
+                        
+where status_kunjungan=0
 		";
 
         $ambil = $this->db->query($sSQL);
@@ -78,7 +81,7 @@ class Md_kunjungan_baru extends CI_Model {
         $sSQL = "
 			SELECT MAX(p.num) AS no_urut
 			FROM (
-				SELECT CAST(SUBSTRING(id_pasien,5,5) AS UNSIGNED INTEGER) AS num
+				SELECT CAST(SUBSTRING(no_urut,5,5) AS UNSIGNED INTEGER) AS num
 				FROM ttrs_kunjungan
 			) p
 			WHERE 1=1
@@ -92,7 +95,7 @@ class Md_kunjungan_baru extends CI_Model {
             $no_urut = 1;
         }
 
-        $hasil = sprintf("CST%05d", $no_urut);
+        $hasil = sprintf("%s%05d",'2018' ,$no_urut);
 
         return $hasil;
     }

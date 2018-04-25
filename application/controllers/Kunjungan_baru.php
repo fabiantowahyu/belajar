@@ -105,7 +105,7 @@ class Kunjungan_baru extends CI_Controller {
     
 public function CTRL_Option_Pasien() {
         $AryAsuransi = $this->db->get_where('tmst_pasien')->result();
-        $option[''] = 'Pilih Asuransi';
+        $option[''] = 'Pilih Pasien';
         foreach($AryAsuransi as $row) {
             $option[$row->id_pasien] = $row->nama;
         }
@@ -115,7 +115,7 @@ public function CTRL_Option_Pasien() {
     
     public function CTRL_Option_Dokter() {
         $AryAsuransi = $this->db->get_where('tmst_dokter')->result();
-        $option[''] = 'Pilih Asuransi';
+        $option[''] = 'Pilih Dokter';
         foreach($AryAsuransi as $row) {
             $option[$row->id_dokter] = $row->nama;
         }

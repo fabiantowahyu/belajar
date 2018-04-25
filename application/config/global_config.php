@@ -85,6 +85,8 @@ $config['ttrs_lse_survres_cal'] = $dbPrefix . 'ttrs_lse_survres_cal';
 $config['ttrs_approvedby'] = $dbPrefix . 'ttrs_approvedby';
 $config['tmst_client_document'] = $dbPrefix . 'tmst_client_document';
 
+///////db belajar//////////////////////////////////////
+$config['ttrs_kunjungan'] = $dbPrefix . 'ttrs_kunjungan';
 
 $config['template_forgot_password'] = 14;
 $config['template_LSE'] = 1;

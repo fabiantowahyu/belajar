@@ -62,10 +62,10 @@
                                     <?php foreach ($results as $row) { ?>
                                     <tr>
                                         <td><?php echo $row->recdate; ?></td>
-                                        <th >Antrian</th>
+                                        <th ><?php echo $row->no_urut; ?></th>
                                         <td><?php echo $row->poli; ?></td>
                                         <td><?php echo $row->pasien; ?></td>
-                                        <td><?php echo $row->dokter; ?></td>
+                                        <td><?php echo $row->nama_dokter; ?></td>
                                         <td class="center">
                                             <?php 
                                                                       echo anchor('kunjungan_baru/CTRL_Edit/' . $row->no_urut, '<button class="btn btn-xs btn-primary"><i class="fa fa-pencil bigger-120"></i></button>');
